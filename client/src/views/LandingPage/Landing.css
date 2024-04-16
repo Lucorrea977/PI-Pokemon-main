@@ -1,0 +1,24 @@
+.button {
+    font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    position: relative;
+    display: inline-block;
+    margin: 20%;
+    padding: 15px 30px;
+    background-color: #e694ff;
+    color:ivory;
+    letter-spacing: 4px;
+    font-size: 24px;
+    text-decoration: none;
+    overflow: hidden;
+    transition: 1s;
+    border: none;
+    border-radius: 2px; 
+}
+
+
+.button:hover{
+    cursor:pointer ;
+    background: #a945c7;
+    box-shadow: 0 0 10px #a945c7, 0 0 40px
+    #a945c7, 0 0 80px #a945c7;
+}
