@@ -1,5 +1,5 @@
 import React from "react";
-import "./Paginado.css"
+import "./Paginado.css";
 
 export default function Paginado({ pokemonsPerPage, allPokemons, paginado }) {
   const pageNumbers = [];
@@ -9,15 +9,14 @@ export default function Paginado({ pokemonsPerPage, allPokemons, paginado }) {
 
   return (
     <nav>
-      <ul className='paginado' >
-        {pageNumbers &&
-          pageNumbers.map(number => {
-             return <li className="number" key ='num'>
-           <button className="btn" onClick={() => paginado(number)}>
-             {number}
-              </button>
-            </li>
-          })}
+      <ul className='paginado'>
+        {pageNumbers.map(number => (
+          <li className="number" key={number}>
+            <button className="btn" onClick={() => paginado(number)}>
+              {number}
+            </button>
+          </li>
+        ))}
       </ul>
     </nav>
   );

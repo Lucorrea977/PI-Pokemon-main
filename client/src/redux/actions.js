@@ -1,12 +1,12 @@
 import axios from "axios";
 
-
 export function postPokemon(payload){
-return async function () {
-  const response = await axios.post("/pokemons" , payload)
-  return response;
-}
-}
+  
+    return async function () {
+      const response = await axios.post("/pokemons" , payload)
+      return response;
+    }
+    }
 
 export function searchPoke(name) {
   return async function (dispatch) {

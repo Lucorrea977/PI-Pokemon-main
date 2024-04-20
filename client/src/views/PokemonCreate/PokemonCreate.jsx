@@ -1,25 +1,24 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from "react-router-dom"
 import { getType, postPokemon } from "../../redux/actions";
 import { Link } from "react-router-dom";
 import "./Create.css";
 
-function validate(pokemon) {
+function validate(pokemon){
   let errors = {};
-  if (!pokemon.name) {
-    errors.name = "Se requiere un nombre";
-  }
-  return errors;
+  if (!pokemon.name){
+    errors.name = "Se requiere un nombre"
+  } return errors
 }
 
 export default function PokemonCreate() {
   const dispatch = useDispatch();
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const types = useSelector((state) => state.types);
 
-  const [errors, setErrors] = useState({});
+  const [errors,setErrors] = useState({});
 
   const [pokemon, setPokemon] = useState({
     name: "",
@@ -35,46 +34,49 @@ export default function PokemonCreate() {
 
   useEffect(() => {
     dispatch(getType());
-  }, []);
+  }, [dispatch]);
 
+  
   function handleSelect(e) {
     setPokemon({
       ...pokemon,
-      types: [...pokemon.types, e.target.value],
+      types: [...pokemon.types, e.target.value], // Cambiar pokemon.type a pokemon.types
     });
   }
 
-  function onInputChange(e) {
-    e.preventDefault();
-    setPokemon({
+function onInputChange(e) {
+  e.preventDefault();
+  setPokemon({
+    ...pokemon,
+    [e.target.name]: e.target.value,
+  });
+  setErrors(
+    validate({
       ...pokemon,
       [e.target.name]: e.target.value,
-    });
-    setErrors(
-      validate({
-        ...pokemon,
-        [e.target.name]: e.target.value,
-      })
-    );
-  }
+    })
+  );
+}
 
-  function onSubmit(e) {
-    e.preventDefault();
-    dispatch(postPokemon(pokemon));
-    alert("Personaje creado con éxito");
-    setPokemon({
-      name: "",
-      types: [],
-      image: "",
-      life: 0,
-      attack: 0,
-      defense: 0,
-      speed: 0,
-      height: 0,
-      weight: 0,
-    });
-    navigate("/home"); 
-  }
+
+function onSubmit(e) {
+  e.preventDefault();
+  
+  dispatch(postPokemon(pokemon));
+  alert("Personaje creado con éxito");
+  setPokemon({
+    name: "",
+    types: [],
+    image: "",
+    life: 0,
+    attack: 0,
+    defense: 0,
+    speed: 0,
+    height: 0,
+    weight: 0,
+  });
+  navigate("/home");
+}
 
   return (
     <form className="form" onSubmit={onSubmit}>

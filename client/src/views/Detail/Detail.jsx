@@ -1,30 +1,46 @@
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDetail } from "../../redux/actions";
-import { Link } from "react-router-dom";
-import './Detail.css'
+import { Link, useParams } from "react-router-dom";
+import './Detail.css';
 
-export default function Detail(props) {
+export default function Detail() {
+  const { id } = useParams();
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true); // Estado para controlar la carga
+
   useEffect(() => {
-    dispatch(getDetail(props.match.params.id));
-  }, [dispatch]);
+    // Al comenzar la carga de los detalles, establecer loading en true
+    setLoading(true);
+    dispatch(getDetail(id))
+      .then(() => {
+        // Cuando los detalles se cargan con éxito, establecer loading en false
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching details:", error);
+        setLoading(false); // En caso de error, también establecer loading en false
+      });
+  }, [dispatch, id]);
 
   let details = useSelector((state) => state.detail);
-  console.log(details)
+
+  // Si está en curso la carga, mostrar un indicador de carga
+  if (loading) {
+    return <div className="loadingDetail">Cargando detalles...</div>; // Puedes personalizar este mensaje según tus necesidades
+  }
+
   return (
     <div className="container">
       <div className="volver">
-        <Link to="/home" className="letter"> Volver </Link> </div>
+        <Link to="/home" className="letter"> Volver </Link> 
+      </div>
       <div>
         {details.length ? (
           details.map((p) => (
-            <Link to={`/home/${p.id}`}>
-              <div>
-                <h1 className="names">{p.name.toUpperCase()}</h1>
-                <h2 className="id">#{p.id}</h2>
-              </div>
+            <div key={p.id}>
+              <h1 className="names">{p.name.toUpperCase()}</h1>
+              <h2 className="id">#{p.id}</h2>
               <div>
                 <img className="imagen" src={p.image} alt="" width="250px" height="250px" />
                 {p.types.length === 2 ? (
@@ -36,7 +52,6 @@ export default function Detail(props) {
                             typeof p.types[0] === 'string' ? p.types[0] : p.types[0]?.name}-
                           {
                             typeof p.types[1] === 'string' ? p.types[1] : p.types[1]?.name}
-
                         </li>
                       </ul>
                     </h3>
@@ -63,7 +78,7 @@ export default function Detail(props) {
                   </h4>
                 </div>
               </div>
-            </Link>
+            </div>
           ))
         ) : (
           <img

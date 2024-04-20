@@ -2,10 +2,10 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import LandingPage from "./views/LandingPage/Landing";
 import Home from "./views/Home/Home";
-import PokemonCreate from "./views/Form/PokemonCreate";
+import PokemonCreate from "./views/PokemonCreate/PokemonCreate";
 import Detail from "./views/Detail/Detail";
 import axios from "axios";
-axios.defaults.baseURL = `http://localhost:3001/`
+axios.defaults.baseURL = "http://localhost:3001/"
 
 
 

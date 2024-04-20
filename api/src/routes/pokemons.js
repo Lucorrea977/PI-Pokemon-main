@@ -37,6 +37,7 @@ router.get("/:id", async (req, res, next) => { //Busqueda por id
   }
 });
 
+
 router.post("/", async (req, res, next) => { //Ruta de creacion del pokemon
   try {
     let { name, image, life, attack, defense, speed, height, weight, types} = req.body //Datos que necesito pedir
@@ -68,4 +69,7 @@ router.post("/", async (req, res, next) => { //Ruta de creacion del pokemon
     res.status(400).send("Error en data");
   }
 })
+
+
+
 module.exports = router;
