@@ -24,7 +24,7 @@ export default function PokemonCreate() {
     name: "",
     types: [],
     image: "",
-    life: 0,
+    hp: 0,
     attack: 0,
     defense: 0,
     speed: 0,
@@ -68,7 +68,7 @@ function onSubmit(e) {
     name: "",
     types: [],
     image: "",
-    life: 0,
+    hp: 0,
     attack: 0,
     defense: 0,
     speed: 0,
@@ -109,9 +109,9 @@ function onSubmit(e) {
         <label htmlFor="">Vida: </label>
         <input
           onChange={onInputChange}
-          name="life"
+          name="hp"
           type="number"
-          value={pokemon.life}
+          value={pokemon.hp}
           className="input"
         />{" "}
     

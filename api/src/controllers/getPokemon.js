@@ -20,7 +20,7 @@ const getApiInfo = async () => {
         name: result.name,
         types: result.types.map((t) => t.type.name), //lOS TIPOS ESTAN EN SU PROPIEDAD NAME
         image: result.sprites.front_default,
-        life: result.stats[0].base_stat,
+        hp: result.stats[0].base_stat,
         attack: result.stats[1].base_stat,
         defense: result.stats[2].base_stat,
         speed: result.stats[3].base_stat,

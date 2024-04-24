@@ -40,12 +40,12 @@ router.get("/:id", async (req, res, next) => { //Busqueda por id
 
 router.post("/", async (req, res, next) => { //Ruta de creacion del pokemon
   try {
-    let { name, image, life, attack, defense, speed, height, weight, types} = req.body //Datos que necesito pedir
+    let { name, hp, attack, defense, speed, height, weight, types} = req.body //Datos que necesito pedir
 
     const newPokemon = await Pokemon.create({
       name,
       image,
-      life,
+      hp,
       attack,
       defense,
       speed,
