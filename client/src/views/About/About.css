@@ -23,9 +23,10 @@
   
   .about-buttons button {
     padding: 10px 20px;
+    
     font-size: 16px;
-    background-color: #5a0764;
-    color: #050404;
+    background-color: #070607;
+    color: #c55df1;
     border: none;
     border-radius: 100px;
     cursor: pointer;
@@ -36,6 +37,7 @@
     background-color: #e3a9f5;
   }
   
+ 
   .about-social {
     display: flex; /* Alinea los elementos uno al lado del otro */
     justify-content: center; /* Centra los elementos horizontalmente */
@@ -45,7 +47,8 @@
   
   .about-social li {
     list-style-type: none; /* Quita los puntos de la lista */
-    margin-right: 35px; /* Elimina todo el margen */
+    margin-right: 35px;
+    display: inline-block;
   }
   
   .about-social img {
@@ -53,17 +56,21 @@
     height: 50px;
     border-radius: 50%;
     transition: transform 0.3s;
-    margin-right: 15px; /* Agrega un margen derecho entre los íconos */
+    margin-right: 10px; /* Agrega un margen derecho entre los íconos */
   }
   
   .about-social img:last-child {
-    margin-right: 0; /* Elimina el margen derecho del último ícono */
+    margin-right: 0px; /* Elimina el margen derecho del último ícono */
   }
   
   .about-social img:hover {
     transform: scale(1.2);
   }
 
+ .pok-gif{
+    width: 400px;
+    left: 100px;
+ }
  .pok-gif{
     width: 400px;
     left: 100px;
