@@ -1,16 +1,16 @@
 .container{
-    background-color: rgba(220, 156, 242, 0.5); /* Fondo transparente */
- 
+
+    
     padding: 30px; /* Ajusta la distancia entre el contenido y el borde del contenedor */
     width: 50%; /* Anchura del contenedor */
     margin: auto; /* Centra el contenedor horizontalmente */
 }
 
 .imagen {
+   
     border-radius: 200px;
-    border-radius: 200px;
-    background: -webkit-linear-gradient(left,rgb(182, 113, 241), rgb(63, 5, 156));         
-    box-shadow: 5px 5px 10px rgb(107, 7, 237);
+    background: -webkit-linear-gradient(left,rgb(182, 113, 241), rgb(158, 105, 243));         
+    box-shadow: 5px 5px 5px rgb(56, 5, 122);
 }
 
 * {
@@ -25,7 +25,7 @@ font-size: 40px;
 margin-top: 20px;
 text-align: center;
 color: rgb(5, 0, 9);
-text-shadow: 1px 1px 2px rgba(66, 11, 122, 0.438);
+text-shadow: 0px 10px 0px rgba(47, 12, 81, 0.438);
 
 }
 
@@ -34,7 +34,7 @@ text-shadow: 1px 1px 2px rgba(66, 11, 122, 0.438);
 .id{
    font-size: 30px;
    color: rgb(13, 13, 13);
-   text-shadow: 1px 1px 2px rgba(228, 220, 220, 0.438)
+   text-shadow: 5px 1px 2px rgba(101, 92, 218, 0.438)
 }
 
 .volver{
@@ -45,26 +45,21 @@ text-shadow: 1px 1px 2px rgba(66, 11, 122, 0.438);
     margin-top:0px;
 }
 
-.loadingDetail{
-    font-size: large;
-    font-family: fantasy;
-    color: rgb(57, 16, 110);
-    background-color: rgba(255, 255, 255, 0.5); /* Aquí se define la transparencia */
-    }
+
     
 
 .letter{
-    color: #fff
+    color: #f1ecec
     }
 
 .type1, .type2 {
     font-family: "Merienda", cursive;
-    font-size: 30px;
+    font-size: 40px;
     margin-right: 30px;
-text-shadow: 1px 1px 2px rgba(69, 28, 128, 0.657)
+text-shadow: 1px 1px 2px rgba(151, 93, 233, 0.657)
 }
 
 .lista{
-    font-size: 22px;
+    font-size: 25px;
     margin-top: 50px;
-}
+} 

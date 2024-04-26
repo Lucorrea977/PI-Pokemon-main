@@ -9,7 +9,8 @@ export default function NavBar() {
           <img  className="logo" src="https://i.imgur.com/avg4dfp.png" alt="404" />
         </Link>
        <div> <Link to="/create" className="created" >
-              Crear Pokemon
+    
+       ϞϞ Se parte y crea tu propio pokemon ϞϞ
             </Link></div>
   
       </header>

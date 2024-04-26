@@ -2,25 +2,28 @@
     width:140px;
     float: left;
     margin-left: 10px;
-    /* margin-bottom: 30px; */
+   
     transform: translate(0px,-18px)
   }
-  
   .created {
     float: right;
-    margin-top: 15px;
-    margin-right: 20px;
-    font-size: 35px;
-    color: white;
-    font-family: 'Rancho', cursive;
-    transition-duration: 0.4s
-  }
-  .created:hover{
-    color: rgba(196, 168, 224, 0.938);
+    margin-top: 5px;
+    margin-right: 10px;
+    font-size: 19px;
+    color: rgb(7, 1, 1);
+    font-family:initial;
+    transition-duration: 0.4s;
+    padding: 15px 10px; /* Agrega padding para hacerlo parecer un botón */
+    background-color: rgba(192, 116, 234, 0.685); /* Agrega un color de fondo */
+    border-radius: 5px; /* Añade bordes redondeados */
   }
   
+  .created:hover {
+    color: rgba(40, 29, 51, 0.938);
+    background-color: rgba(164, 118, 195, 0.7); /* Cambia el color de fondo al pasar el ratón */
+  }
   .header {
     overflow: hidden;
     height: 70px;
-    background-color: #290035;
+    background-color: rgba(216, 163, 230, 0.5); /* Utiliza rgba para el color con transparencia */
   }

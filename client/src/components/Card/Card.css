@@ -1,43 +1,43 @@
-.stylesCard {
-    background: rgba(210, 170, 247, 0.87);
-    margin: 35px;
-    width: 17rem;
-    border-radius: 10px;
-    display: inline-block;
-    transition: all 400ms ease;
-    box-sizing: content-box;
-    min-height: 150px;
-    border-color: #22043dda;
-    border-width: 1.5px;
-    border-style: solid;
-  }
-  
-  .stylesCard:hover {
-    box-shadow: 20px 20px 20px rgb(0, 0, 0, 0, 4);
-    transform: translateY(-3%);
-  }
-  
-  .name {
-    font-family: "Sofia", cursive;
-    font-size: 20px;
-    color: #000000;
-    text-decoration: none;
-  }
-  
-  .typeStyle {
-    list-style-type: none;
-    color: #2e023b;
-    text-decoration-line: none;
-    display: inline;
-    padding-left: 3px;
-    padding-right: 3px;
-    font-family: "Merienda", cursive;
-    text-decoration: none;
-  }
-  
-  ul li {
-    text-decoration-line: none;
-    list-style-type: none;
-    text-align: center;
-    align-content: center;
-  }
+.card {
+  background: rgba(210, 170, 247, 0.87);
+  margin: 35px;
+  width: 17rem;
+  border-radius: 10px;
+  display: inline-block;
+  transition: all 400ms ease;
+  box-sizing: content-box;
+  min-height: 150px;
+  border-color: #22043dda;
+  border-width: 1.5px;
+  border-style: solid;
+}
+
+.card:hover {
+  box-shadow: 20px 20px 20px rgb(0, 0, 0, 0, 4);
+  transform: translateY(-3%);
+}
+
+.name {
+  font-family: "Sofia", cursive;
+  font-size: 20px;
+  color: #000000;
+  text-decoration: none;
+}
+
+.types {
+  list-style-type: none;
+  color: #2e023b;
+  text-decoration-line: none;
+  display: inline;
+  padding-left: 3px;
+  padding-right: 3px;
+  font-family: "Merienda", cursive;
+  text-decoration: none;
+}
+
+.types li {
+  text-decoration-line: none;
+  list-style-type: none;
+  text-align: center;
+  align-content: center;
+}
