@@ -3,6 +3,7 @@ const initialState = {
   allPokemons: [],
   detail: [],
   types: [],
+  filters: {}, // Nuevo estado para almacenar los filtros seleccionados
 };
 
 function rootReducer(state = initialState, action) {
@@ -49,10 +50,6 @@ function rootReducer(state = initialState, action) {
         pokemons:
           action.payload === "Fuerza" ? state.allPokemons : attackFilter,
       };
-      case "POST_POKEMON":
-        return {
-          ...state,
-        };
     case "SORT":
       let orderedCharacters = [...state.pokemons];
       orderedCharacters = orderedCharacters.sort((a, b) => {
@@ -84,6 +81,11 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         types: action.payload,
+      };
+    case "SET_FILTERS":
+      return {
+        ...state,
+        filters: action.payload,
       };
     default:
       return state;

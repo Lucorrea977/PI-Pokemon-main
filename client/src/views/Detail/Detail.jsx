@@ -27,7 +27,7 @@ export default function Detail() {
 
   // Si está en curso la carga, mostrar un indicador de carga
   if (loading) {
-    return <div className="loadingDetail">Cargando detalles...</div>; // Puedes personalizar este mensaje según tus necesidades
+    return <div className="loadingDetail">Cargando detalles...</div>; 
   }
 
   return (
@@ -67,7 +67,7 @@ export default function Detail() {
                   <h4>
                     <ul>
                       <li className="lista">
-                        Vida: {p.life} Ps -
+                        Vida: {p.hp} Ps -
                         Fuerza: {p.attack} % -
                         Defensa: {p.defense} % -
                         Velocidad: {p.speed} % -

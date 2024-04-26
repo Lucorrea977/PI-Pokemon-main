@@ -40,7 +40,7 @@ router.get("/:id", async (req, res, next) => { //Busqueda por id
 
 router.post("/", async (req, res, next) => { //Ruta de creacion del pokemon
   try {
-    let { name, hp, attack, defense, speed, height, weight, types} = req.body //Datos que necesito pedir
+    let { name, image, hp, attack, defense, speed, height, weight, types} = req.body //Datos que necesito pedir
 
     const newPokemon = await Pokemon.create({
       name,
@@ -66,10 +66,14 @@ router.post("/", async (req, res, next) => { //Ruta de creacion del pokemon
      return res.send("Pokemon creado exitosamente");
     }
   } catch (err) {
-    res.status(400).send("Error en data");
+    res.status(400).json({ error: "Error en data", details: err });
+    console.log(err);
   }
 })
 
 
 
 module.exports = router;
+
+
+

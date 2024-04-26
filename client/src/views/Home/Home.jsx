@@ -17,31 +17,45 @@ function Home() {
   const indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage;
   const currentPokemons = allPokemons.slice(indexOfFirstPokemon, indexOfLastPokemon);
 
-  const paginado = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
+  const storedFilters = JSON.parse(localStorage.getItem("filters")) || {};
+  const [filters, setFilters] = useState(storedFilters);
+
+  useEffect(() => {
+    localStorage.setItem("filters", JSON.stringify(filters));
+  }, [filters]);
 
   useEffect(() => {
     dispatch(getPokemons());
   }, [dispatch]);
 
+  const paginado = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
   const handleFilterType = (e) => {
-    dispatch(filterPokemonsByType(e.target.value));
+    const { value } = e.target;
+    setFilters({ ...filters, type: value });
+    dispatch(filterPokemonsByType(value));
   };
 
   const handleFilterCreated = (e) => {
-    dispatch(filterCreated(e.target.value));
+    const { value } = e.target;
+    setFilters({ ...filters, created: value });
+    dispatch(filterCreated(value));
   };
 
   const handleFilterAttack = (e) => {
-    dispatch(filterByAttack(e.target.value));
+    const { value } = e.target;
+    setFilters({ ...filters, attack: value });
+    dispatch(filterByAttack(value));
   };
 
   const onSelectsChange = (e) => {
-    dispatch(Sort(e.target.value));
+    const { value } = e.target;
+    setFilters({ ...filters, sort: value });
+    dispatch(Sort(value));
   };
 
-  // Define una lista de tipos de Pokémon
   const pokemonTypes = [
     "normal", "flying", "poison", "ground", "bug",
     "fire", "water", "grass", "electric", "fairy"
@@ -53,23 +67,23 @@ function Home() {
       <SearchBar className="search"/>
       <div className="home">
         <div>
-          <select name="select" onChange={onSelectsChange} className="a-z">
+          <select name="select" value={filters.sort} onChange={onSelectsChange} className="a-z">
             <option value="Filtro"> Ordenar A-Z:</option>
             <option value="ASCENDENTE">Ascendente</option>
             <option value="DESCENDENTE">Descendente</option>
           </select>
-          <select name="selects" onChange={handleFilterAttack} className="attack">
+          <select name="selects" value={filters.attack} onChange={handleFilterAttack} className="attack">
             <option value="Fuerza"> Ordenar por fuerza</option>
             <option value="Mayor fuerza">Mayor fuerza</option>
             <option value="Menor fuerza">Menor fuerza</option>
           </select>
-          <select onChange={handleFilterType}>
+          <select value={filters.type} onChange={handleFilterType}>
             <option value="type"> Filtrar por tipo</option>
             {pokemonTypes.map(type => (
               <option key={type} value={type}>{type[0].toUpperCase() + type.slice(1)}</option>
             ))}
           </select>
-          <select onChange={handleFilterCreated}>
+          <select value={filters.created} onChange={handleFilterCreated}>
             <option value="Todos"> Todos </option>
             <option value="Creados"> Creados </option>
             <option value="Existentes"> Existentes </option>

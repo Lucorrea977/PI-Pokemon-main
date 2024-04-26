@@ -1,8 +1,16 @@
+.container{
+    background-color: rgba(220, 156, 242, 0.5); /* Fondo transparente */
+ 
+    padding: 30px; /* Ajusta la distancia entre el contenido y el borde del contenedor */
+    width: 50%; /* Anchura del contenedor */
+    margin: auto; /* Centra el contenedor horizontalmente */
+}
+
 .imagen {
     border-radius: 200px;
     border-radius: 200px;
-    background: -webkit-linear-gradient(left,rgb(110, 76, 235), rgb(63, 5, 156));         
-    box-shadow: 5px 5px 10px rgb(70, 40, 110);
+    background: -webkit-linear-gradient(left,rgb(182, 113, 241), rgb(63, 5, 156));         
+    box-shadow: 5px 5px 10px rgb(107, 7, 237);
 }
 
 * {
@@ -16,30 +24,35 @@ font-family: 'Cinzel Decorative', cursive;
 font-size: 40px;
 margin-top: 20px;
 text-align: center;
-text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.438)
+color: rgb(5, 0, 9);
+text-shadow: 1px 1px 2px rgba(66, 11, 122, 0.438);
+
 }
 
 
 
 .id{
    font-size: 30px;
-   color: rgb(46, 13, 87);
-   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.438)
+   color: rgb(13, 13, 13);
+   text-shadow: 1px 1px 2px rgba(228, 220, 220, 0.438)
 }
 
 .volver{
     color: #fff;
     background-color: rgb(57, 16, 110);
     display: inline-block;
-	padding:15px;
+	padding:10px;
     margin-top:0px;
 }
 
 .loadingDetail{
     font-size: large;
     font-family: fantasy;
-    color:rgb(57, 16, 110) ;
-}
+    color: rgb(57, 16, 110);
+    background-color: rgba(255, 255, 255, 0.5); /* Aquí se define la transparencia */
+    }
+    
+
 .letter{
     color: #fff
     }
@@ -48,7 +61,7 @@ text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.438)
     font-family: "Merienda", cursive;
     font-size: 30px;
     margin-right: 30px;
-text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.657)
+text-shadow: 1px 1px 2px rgba(69, 28, 128, 0.657)
 }
 
 .lista{
