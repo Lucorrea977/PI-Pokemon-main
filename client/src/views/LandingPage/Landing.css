@@ -1,24 +1,66 @@
-.button {
+.lp {
+    display: flex;
+  
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column; /* Coloca los elementos en columna */
+    background-color: rgba(171, 33, 225, 0.289); /* Fondo transparente */
+  }
+  
+  .title {
+  
+    font-size: 36px;
+  font-family: fantasy;
+    margin-bottom: 30px;
+  color: black;
+    background-color: rgba(183, 28, 230, 0.347); /* Cambia el color del título a negro */
+    animation: fadeIn 1s ease-in-out; /* Agrega la animación */
+  
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0; /* Comienza con una opacidad de 0 (invisible) */
+    }
+    to {
+      opacity: 1; /* Termina con una opacidad de 1 (visible) */
+    }
+  }
+  
+  .form-container {
+    text-align: center;
+   
+  }
+  
+  .form-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los elementos horizontalmente dentro del formulario */
+  }
+  
+  .form-container input[type="text"] {
+    width: 300px; /* Ajusta el ancho del campo de entrada */
+    margin-bottom: 10px; /* Espaciado entre el campo de entrada y el botón */
+    padding: 10px;
+    font-size: 18px;
+  }
+  
+  .button {
     font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    position: relative;
-    display: inline-block;
-    margin: 20%;
     padding: 15px 30px;
-    background-color: #e694ff;
-    color:ivory;
+    background-color: #c66ee1;
+    color: rgb(10, 10, 8);
     letter-spacing: 4px;
     font-size: 24px;
     text-decoration: none;
-    overflow: hidden;
-    transition: 1s;
     border: none;
-    border-radius: 2px; 
-}
-
-
-.button:hover{
-    cursor:pointer ;
-    background: #b607eb;
-    box-shadow: 0 0 10px #a945c7, 0 0 40px
-    #a945c7, 0 0 80px #a945c7;
-}
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s;
+  }
+  
+  .button:hover {
+    background: #610c7b;
+    box-shadow: 0 0 10px #a945c7, 0 0 40px #a945c7, 0 0 80px #a945c7;
+  }

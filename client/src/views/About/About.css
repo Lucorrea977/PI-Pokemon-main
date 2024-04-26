@@ -18,7 +18,7 @@
   }
   
   .about-buttons {
-    margin-bottom: 26px;
+    margin-bottom: 25px;
   }
   
   .about-buttons button {
@@ -56,11 +56,12 @@
     height: 50px;
     border-radius: 50%;
     transition: transform 0.3s;
-    margin-right: 10px; /* Agrega un margen derecho entre los íconos */
+    margin-right: 20px; /* Agrega un margen derecho entre los íconos */
   }
   
   .about-social img:last-child {
-    margin-right: 0px; /* Elimina el margen derecho del último ícono */
+    margin-right: 0px; 
+    
   }
   
   .about-social img:hover {
@@ -68,8 +69,8 @@
   }
 
  .pok-gif{
-    width: 400px;
-    left: 100px;
+
+    left: 10px;
  }
  .pok-gif{
     width: 400px;

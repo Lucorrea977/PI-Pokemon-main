@@ -4,6 +4,7 @@
     padding: 30px; /* Ajusta la distancia entre el contenido y el borde del contenedor */
     width: 50%; /* Anchura del contenedor */
     margin: auto; /* Centra el contenedor horizontalmente */
+    background-color: rgba(168, 73, 235, 0.316); /* Fondo transparente */
 }
 
 .imagen {
