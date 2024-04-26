@@ -4,16 +4,18 @@ import "./NavBar.css";
 
 export default function NavBar() {
   return (
-      <header id="navegador" className="header">
-        <Link to="/">
-          <img  className="logo" src="https://i.imgur.com/avg4dfp.png" alt="404" />
+    <header id="navegador" className="header">
+      <Link to="/">
+        <img className="logo" src="https://i.imgur.com/avg4dfp.png" alt="404" />
+      </Link>
+      <div>
+        <Link to="/create" className="created">
+          Ϟ Crea tu propio pokemon Ϟ
         </Link>
-       <div> <Link to="/create" className="created" >
-    
-       ϞϞ Se parte y crea tu propio pokemon ϞϞ
-            </Link></div>
-  
-      </header>
-
+        <Link to="/about" className="about">
+        Ϟ Informacion Ϟ
+        </Link>
+      </div>
+    </header>
   );
 }

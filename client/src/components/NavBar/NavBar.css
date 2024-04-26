@@ -27,3 +27,16 @@
     height: 70px;
     background-color: rgba(216, 163, 230, 0.5); /* Utiliza rgba para el color con transparencia */
   }
+
+  .about{
+    float: right;
+    margin-top: 5px;
+    margin-right: 10px;
+    font-size: 19px;
+    color: rgb(7, 1, 1);
+    font-family:initial;
+    transition-duration: 0.4s;
+    padding: 15px 10px; /* Agrega padding para hacerlo parecer un botón */
+    background-color: rgba(192, 116, 234, 0.685); /* Agrega un color de fondo */
+    border-radius: 5px; /* Añade bordes redondeados */
+  }
