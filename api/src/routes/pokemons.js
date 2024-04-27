@@ -5,28 +5,28 @@ const { Pokemon, Type } = require("../db");
 
 router.get("/", async (req, res, next) => {
   try {
-    let name = req.query.name; //Recibo la request en una variable
-    let pokemonsTotal = await getAllPokemons(); //Guardo mi controlador que trae todos los pokemons en una variable..
-    if (name) { //Consulto si me pasan un nombre y lo busco en la variable de arriba
+    let name = req.query.name; 
+    let pokemonsTotal = await getAllPokemons();
+    if (name) {
       let pokemonName = await pokemonsTotal.filter((el) =>
         el.name.toLowerCase().includes(name.toLowerCase())
       );
       pokemonName.length
-        ? res.status(200).send(pokemonName) // Si lo encuentro lo devuelvo,
-        : res.status(404).send("El pokemon ingresado no existe"); // y sino devuelvo el texto.
+        ? res.status(200).send(pokemonName) 
+        : res.status(404).send("El pokemon ingresado no existe"); 
     } else {
-      res.status(200).send(pokemonsTotal); //Sino devuelvo todos los pokemons
+      res.status(200).send(pokemonsTotal); 
     }
   } catch (error) {
     next(error);
   }
 });
 
-router.get("/:id", async (req, res, next) => { //Busqueda por id
+router.get("/:id", async (req, res, next) => { 
   try {
     const id = req.params.id;
     const pokemonsTotal = await getAllPokemons();
-    if (id) { //Si me pasan un ID, filtro el que coincida con ese mismo, sino devuelvo texto.
+    if (id) { 
       let pokemonId = pokemonsTotal.filter((el) => el.id == id);
       pokemonId.length
         ? res.status(200).json(pokemonId)
@@ -39,9 +39,9 @@ router.get("/:id", async (req, res, next) => { //Busqueda por id
 
 
 
-router.post("/", async (req, res, next) => { // Ruta de creación del Pokémon
+router.post("/", async (req, res, next) => {
   try {
-    let { name, image, hp, attack, defense, speed, height, weight, types } = req.body // Datos que necesito pedir
+    let { name, image, hp, attack, defense, speed, height, weight, types } = req.body 
 
     const newPokemon = await Pokemon.create({
       name,
@@ -56,13 +56,13 @@ router.post("/", async (req, res, next) => { // Ruta de creación del Pokémon
 
     if (!name) return res.status(400).json({ error: "El nombre es obligatorio" });
 
-    if (Array.isArray(types) && types.length) { // Consulto si lo que me llega en TYPES, es un arreglo y si tiene algo adentro.
-      let dbTypes = await Promise.all( // Armo una variable que dentro tendrá una resolución de promesas
-        types.map((e) => { // Agarro la data de types y le hago un map para verificar que cada elemento exista en nuestra tabla de tipos
-          return Type.findOne({ where: { name: e } }) // Busco el tipo en la base de datos
+    if (Array.isArray(types) && types.length) { 
+      let dbTypes = await Promise.all( 
+        types.map((e) => { 
+          return Type.findOne({ where: { name: e } })
         })
       )
-      await newPokemon.setTypes(dbTypes) // Una vez que se resuelva la promesa del Pokemon.create, le agrego los tipos
+      await newPokemon.setTypes(dbTypes) 
     }
 
     return res.status(201).json({ message: "Pokemon creado exitosamente", pokemon: newPokemon });

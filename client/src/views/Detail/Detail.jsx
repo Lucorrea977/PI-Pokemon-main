@@ -6,16 +6,16 @@ import { Link, useParams } from "react-router-dom";
 import './Detail.css'
 
 export default function Detail() {
-  const { id } = useParams(); // Obtener el parámetro de la ruta
+  const { id } = useParams(); 
   const dispatch = useDispatch();
   const details = useSelector((state) => state.detail);
-  const [loading, setLoading] = useState(true); // Estado local para controlar la carga
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
-    // Verificar que id no sea undefined antes de despachar la acción
+   
     if (id) {
       setLoading(true); // Iniciar la carga
-      dispatch(getDetail(id)).then(() => setLoading(false)); // Cuando se complete la carga, detenerla
+      dispatch(getDetail(id)).then(() => setLoading(false)); 
     }
   }, [dispatch, id]);
 
@@ -28,7 +28,7 @@ export default function Detail() {
         </Link>
       </div>
       <div>
-        {loading ? ( // Mostrar spinner de carga mientras se está cargando
+        {loading ? (
           <LoadingSpinner />
         ) : (
           details.map((pokemon) => (
