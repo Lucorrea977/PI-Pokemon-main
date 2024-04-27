@@ -6,7 +6,7 @@ import About from "./views/About/About";
 import PokemonCreate from "./views/PokemonCreate/PokemonCreate";
 import Detail from "./views/Detail/Detail";
 import axios from "axios";
-axios.defaults.baseURL = "http://localhost:3001/"
+axios.defaults.baseURL = "https://pi-pokemon-main-39nz.onrender.com/"
 
 
 
