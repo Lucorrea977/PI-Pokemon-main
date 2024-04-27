@@ -1,23 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDetail } from "../../redux/actions";
 import { Link, useParams } from "react-router-dom";
-import "./Detail.css";
+import './Detail.css'
 
 export default function Detail() {
-  const { id } = useParams();
+  const { id } = useParams(); // Obtener el parámetro de la ruta
   const dispatch = useDispatch();
-  const [loading, setLoading] = useState(true);
   const details = useSelector((state) => state.detail);
+  const [loading, setLoading] = useState(true); // Estado local para controlar la carga
 
   useEffect(() => {
-    setLoading(true);
-    dispatch(getDetail(id))
-      .then(() => setLoading(false))
-      .catch((error) => {
-        console.error("Error fetching details:", error);
-        setLoading(false);
-      });
+    // Verificar que id no sea undefined antes de despachar la acción
+    if (id) {
+      setLoading(true); // Iniciar la carga
+      dispatch(getDetail(id)).then(() => setLoading(false)); // Cuando se complete la carga, detenerla
+    }
   }, [dispatch, id]);
 
   return (
@@ -29,7 +28,7 @@ export default function Detail() {
         </Link>
       </div>
       <div>
-        {loading ? (
+        {loading ? ( // Mostrar spinner de carga mientras se está cargando
           <LoadingSpinner />
         ) : (
           details.map((pokemon) => (
@@ -52,13 +51,13 @@ function PokemonDetail({ pokemon }) {
         <img className="imagen" src={image} alt={name} width="250px" height="250px" />
         <div>
           <h3 className="type">
-            {types.length === 2 ? (
-              <>
-                {types[0].name}-{types[1].name}
-              </>
-            ) : (
-              types[0].name
-            )}
+            <ul>
+              {types.map((type, index) => (
+                <li key={index}>
+                  {typeof type === 'string' ? type : type.name}
+                </li>
+              ))}
+            </ul>
           </h3>
         </div>
         <div>

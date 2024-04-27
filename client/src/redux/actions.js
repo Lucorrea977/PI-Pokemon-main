@@ -1,23 +1,20 @@
 import axios from "axios";
 
+export function postPokemon(payload) {
+  return async function () {
+    try {
+      const response = await axios.post("/pokemons", payload);
+      return response;
+    } catch (error) {
 
-  
-  export function postPokemon(payload){
-  
-    return async function () {
-      try {
-        const response = await axios.post("/pokemons" , payload)
-        return response; 
-      } catch (error) {
-        console.log(error);
-      }
     }
-    }
+  };
+}
 
 export function searchPoke(name) {
   return async function (dispatch) {
     try {
-      var json = await axios.get("/pokemons?name=" + name) 
+      var json = await axios.get("/pokemons?name=" + name);
       return dispatch({
         type: "SEARCH_NAME",
         payload: json.data,
@@ -28,7 +25,6 @@ export function searchPoke(name) {
   };
 }
 
-
 export function filterPokemonsByType(payload) {
   return {
     type: "FILTER_BY_TYPE",
@@ -36,24 +32,25 @@ export function filterPokemonsByType(payload) {
   };
 }
 
-export function Sort(order){
+export function Sort(order) {
   return {
-      type: "SORT",
-      payload: order
-  }
-}
-export function filterCreated(payload) {
-  return {
-    type: "FILTER_CREATED",
-    payload
+    type: "SORT",
+    payload: order,
   };
 }
 
-export function filterByAttack(payload){
+export function filterCreated(payload) {
+  return {
+    type: "FILTER_CREATED",
+    payload,
+  };
+}
+
+export function filterByAttack(payload) {
   return {
     type: "FILTER_BY_ATTACK",
-    payload
-  }
+    payload,
+  };
 }
 
 export function getPokemons() {
@@ -66,20 +63,18 @@ export function getPokemons() {
   };
 }
 
-
 export function getDetail(id) {
   return async function (dispatch) {
-    try{
-        var json = await axios.get(`/pokemons/${id}`);
-    return dispatch({
-      type: "GET_DETAILS",
-      payload: json.data
-    })
-   
-} catch(error) {
-  console.log(error)
-}
-  }
+    try {
+      var json = await axios.get(`/pokemons/${id}`);
+      return dispatch({
+        type: "GET_DETAILS",
+        payload: json.data,
+      });
+    } catch (error) {
+
+    }
+  };
 }
 
 export function getType() {
@@ -87,8 +82,7 @@ export function getType() {
     var json = await axios.get("/types");
     return dispatch({
       type: "GET_TYPE",
-      payload: json.data
-    })
-  }
-
+      payload: json.data,
+    });
+  };
 }

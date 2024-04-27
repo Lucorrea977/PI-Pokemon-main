@@ -1,4 +1,4 @@
-.card {
+.stylesCard {
   background: rgba(210, 170, 247, 0.87);
   margin: 35px;
   width: 17rem;
@@ -12,7 +12,7 @@
   border-style: solid;
 }
 
-.card:hover {
+.stylesCard:hover {
   box-shadow: 20px 20px 20px rgb(0, 0, 0, 0, 4);
   transform: translateY(-3%);
 }
@@ -24,7 +24,7 @@
   text-decoration: none;
 }
 
-.types {
+.typeStyle {
   list-style-type: none;
   color: #2e023b;
   text-decoration-line: none;
@@ -35,7 +35,7 @@
   text-decoration: none;
 }
 
-.types li {
+ul li {
   text-decoration-line: none;
   list-style-type: none;
   text-align: center;

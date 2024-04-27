@@ -44,10 +44,10 @@ const getApiInfo = async () => {
           }
       })
       return results;
-  }catch (err){
-      console.log(err);
-  }
-} 
+    } catch (error) {
+      return [];
+    }
+  };
 
 //CONCATENACION DE LOS DOS RESULTADOS ENCONTRADOS..
   const getAllPokemons = async () => { 
