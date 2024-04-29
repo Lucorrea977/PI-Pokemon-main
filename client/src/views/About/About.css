@@ -1,7 +1,7 @@
 .about-container {
-  max-width: 90%; /* Establece el ancho máximo al 90% del tamaño de la pantalla */
+  max-width: 90%; 
   margin: 0 auto;
-  padding: 50px; /* Reducimos el relleno para dispositivos móviles */
+  padding: 50px; 
   background-color: rgba(213, 81, 240, 0.259); /* Fondo transparente */
   font-family: initial
 }
@@ -39,24 +39,24 @@
 
 
 .about-social {
-  display: flex; /* Alinea los elementos uno al lado del otro */
-  justify-content: center; /* Centra los elementos horizontalmente */
+  display: flex; 
+  justify-content: center;
  
-  flex-direction: row; /* Alinea los elementos en una fila horizontal */
+  flex-direction: row; 
 }
 
 .about-social li {
-  list-style-type: none; /* Quita los puntos de la lista */
+  list-style-type: none;
   margin-right: 35px;
   display: inline-block;
 }
 
 .about-social img {
-  width: 30px; /* Reducimos el tamaño de los íconos para dispositivos móviles */
-  height: 30px; /* Reducimos el tamaño de los íconos para dispositivos móviles */
+  width: 30px; 
+  height: 30px;
   border-radius: 50%;
   transition: transform 0.3s;
-  margin-right: 10px; /* Agrega un margen derecho más pequeño para dispositivos móviles */
+  margin-right: 10px; 
 }
 
 .about-social img:last-child {
@@ -73,7 +73,7 @@
   left: 10px;
 }
 .pok-gif {
-  width: 100%; /* Hacemos que el gif se ajuste al ancho del contenedor */
-  max-width: 400px; /* Establecemos un ancho máximo para el gif */
-  margin: 20px auto; /* Centramos el gif y agregamos espacio alrededor */
+  width: 100%; 
+  max-width: 400px; 
+  margin: 20px auto; 
 }
