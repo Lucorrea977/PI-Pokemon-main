@@ -55,6 +55,38 @@
     background: #762a8e82;
 
 }
+/* Estilos base para los botones */
+.created, .about {
+  font-size: 15px;
+  padding: 15px 10px;
+  border-radius: 6px;
+  background-color: rgba(192, 116, 234, 0.685);
+  border: 2px solid rgb(1, 1, 1);
+  transition-duration: 0.4s;
+}
+
+/* Estilos para pantallas más grandes (por ejemplo, tabletas y escritorios) */
+@media screen and (min-width: 768px) {
+  .created, .about {
+    font-size: 18px;
+    padding: 6px 5px;
+    margin-top: 20px;
+    margin-right: 20px;
+  }
+}
+
+/* Estilos para pantallas más pequeñas (por ejemplo, teléfonos móviles) */
+@media screen and (max-width: 767px) {
+  .created, .about {
+    font-size: 18px;
+    padding: 6px 5px;
+    margin-top: 20px;
+    margin-right: 20px;
+  
+ 
+    
+  }
+}
 
 
 
