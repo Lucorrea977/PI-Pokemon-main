@@ -5,6 +5,21 @@
  
   transform: translate(0px,-18px)
 }
+/* Estilos para pantallas más grandes (por ejemplo, tabletas y escritorios) */
+@media screen and (min-width: 768px) {
+  .logo {
+    width: 160px; /* Ajusta el ancho del logo para pantallas más grandes */
+  }
+}
+
+/* Estilos para pantallas más pequeñas (por ejemplo, teléfonos móviles) */
+@media screen and (max-width: 767px) {
+  .logo {
+    width: 115px; /* Ajusta el ancho del logo para pantallas más pequeñas */
+    margin-left: 0px;
+    margin-top: 2%; /* Ajusta el margen izquierdo para centrar el logo en pantallas más pequeñas */
+  }
+}
 .created{
   float: right;
     margin-top: 10px;
@@ -68,7 +83,7 @@
 /* Estilos para pantallas más grandes (por ejemplo, tabletas y escritorios) */
 @media screen and (min-width: 768px) {
   .created, .about {
-    font-size: 18px;
+    font-size: 16px;
     padding: 6px 5px;
     margin-top: 20px;
     margin-right: 20px;
@@ -78,7 +93,7 @@
 /* Estilos para pantallas más pequeñas (por ejemplo, teléfonos móviles) */
 @media screen and (max-width: 767px) {
   .created, .about {
-    font-size: 18px;
+    font-size: 15px;
     padding: 6px 5px;
     margin-top: 20px;
     margin-right: 20px;
