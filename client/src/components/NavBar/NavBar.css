@@ -5,19 +5,19 @@
  
   transform: translate(0px,-18px)
 }
-/* Estilos para pantallas más grandes (por ejemplo, tabletas y escritorios) */
+
 @media screen and (min-width: 768px) {
   .logo {
-    width: 160px; /* Ajusta el ancho del logo para pantallas más grandes */
+    width: 160px; 
   }
 }
 
-/* Estilos para pantallas más pequeñas (por ejemplo, teléfonos móviles) */
+
 @media screen and (max-width: 767px) {
   .logo {
-    width: 110px; /* Ajusta el ancho del logo para pantallas más pequeñas */
+    width: 110px; 
     margin-left: 0px;
-    margin-top: 3%; /* Ajusta el margen izquierdo para centrar el logo en pantallas más pequeñas */
+    margin-top: 3%; 
   }
 }
 .created{
@@ -28,10 +28,10 @@
     color: rgb(7, 1, 1);
    font-family: initial;
     transition-duration: 0.4s;
-    padding: 15px 10px; /* Agrega padding para hacerlo parecer un botón */
-    background-color: rgba(192, 116, 234, 0.685); /* Agrega un color de fondo */
+    padding: 15px 10px; 
+    background-color: rgba(192, 116, 234, 0.685); 
     border-radius: 5px;
-    border: 2px solid rgb(1, 1, 1); /* Agrega un borde sólido de 2px con el color especificado */
+    border: 2px solid rgb(1, 1, 1); 
     
   }
   .created:hover {
@@ -44,7 +44,7 @@
 .header {
   overflow: hidden;
   height: 75px;
-  background-color: rgba(216, 163, 230, 0.5); /* Utiliza rgba para el color con transparencia */
+  background-color: rgba(216, 163, 230, 0.5); 
 }
 
 .about{
@@ -56,9 +56,9 @@
   color: rgb(7, 1, 1);
   font-family:initial;
   transition-duration: 0.4s;
-  padding: 15px 10px; /* Agrega padding para hacerlo parecer un botón */
-  background-color: rgba(192, 116, 234, 0.685); /* Agrega un color de fondo */
-  border-radius: 5px; /* Añade bordes redondeados */
+  padding: 15px 10px; 
+  background-color: rgba(192, 116, 234, 0.685); 
+  border-radius: 5px;
   border: 2px solid rgb(1, 1, 1);
  
   
@@ -80,7 +80,7 @@
   transition-duration: 0.4s;
 }
 
-/* Estilos para pantallas más grandes (por ejemplo, tabletas y escritorios) */
+
 @media screen and (min-width: 768px) {
   .created, .about {
     font-size: 16px;
@@ -90,7 +90,7 @@
   }
 }
 
-/* Estilos para pantallas más pequeñas (por ejemplo, teléfonos móviles) */
+
 @media screen and (max-width: 767px) {
   .created, .about {
     font-size: 14px;

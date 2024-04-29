@@ -4,15 +4,15 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    flex-direction: column; /* Coloca los elementos en columna */
-    background-color: rgba(196, 125, 226, 0.118); /* Fondo transparente */
+    flex-direction: column; 
+    background-color: rgba(196, 125, 226, 0.118); 
   }
   
   .title {
   
     font-size: 36px;
    color: rgb(101, 10, 237);
-    background-color: rgba(103, 7, 238, 0.499); /* Cambia el color del título a negro */
+    background-color: rgba(103, 7, 238, 0.499);
     font-family: initial;
   
   }
@@ -32,8 +32,8 @@
   }
   
   .form-container input[type="text"] {
-    width: 250px; /* Ajusta el ancho del campo de entrada */
-    margin-bottom: 11px; /* Espaciado entre el campo de entrada y el botón */
+    width: 250px; 
+    margin-bottom: 11px; 
     padding: 10px;
     font-size: 18px;
   }

@@ -8,11 +8,11 @@
   box-sizing: content-box;
   min-height: 150px;
   border: 1.5px solid #22043dda;
-  box-shadow: rgba(243, 16, 16, 0.2) 0px 10px 20px; /* Agrega una sombra por defecto */
+  box-shadow: rgba(243, 16, 16, 0.2) 0px 10px 20px; 
 }
 
 .stylesCard:hover {
-  box-shadow: rgba(222, 25, 25, 0.847) 0px 20px 40px; /* Aumenta la sombra al hacer hover */
+  box-shadow: rgba(222, 25, 25, 0.847) 0px 20px 40px; 
   transform: translateY(-3%);
 }
 

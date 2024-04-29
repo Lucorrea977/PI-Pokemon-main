@@ -3,7 +3,7 @@ const initialState = {
   allPokemons: [],
   detail: [],
   types: [],
-  filters: {}, // Nuevo estado para almacenar los filtros seleccionados
+  filters: {}, 
 };
 
 function rootReducer(state = initialState, action) {
