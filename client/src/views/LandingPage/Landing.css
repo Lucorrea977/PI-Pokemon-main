@@ -1,6 +1,6 @@
 .lp {
     display: flex;
-
+font-family: initial;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -10,10 +10,11 @@
   
   .title {
   
-    font-size: 36px;
-   color: rgb(101, 10, 237);
-    background-color: rgba(103, 7, 238, 0.499);
+    font-size: 35px;
+   color: rgb(247, 245, 251);
+   background-color: #5d1871cd;
     font-family: initial;
+    padding: 1%;
   
   }
   
@@ -40,7 +41,7 @@
   
   .button {
     font-family:initial;
-    padding: 15px 30px;
+    padding: 10px 20px;
     background-color: #5d1871cd;
     color: rgb(9, 7, 7);
     letter-spacing: 4px;
@@ -53,7 +54,7 @@
   }
   
   .button:hover {
-    background: #ed0f0f47;
+    background: #ed0f0f24;
     box-shadow: 0 0 10px #a945c7, 0 0 40px #a945c7, 0 0 80px #a945c7;
   }
   .loading {
