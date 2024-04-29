@@ -1,66 +1,77 @@
-.container{
-
-    
-    padding: 30px; /* Ajusta la distancia entre el contenido y el borde del contenedor */
-    width: 50%; /* Anchura del contenedor */
+.container {
+    padding: 5%; /* Ajusta la distancia entre el contenido y el borde del contenedor */
+    width: 90%; /* Anchura del contenedor */
+    max-width: 600px; /* Establece un ancho máximo */
     margin: auto; /* Centra el contenedor horizontalmente */
     background-color: rgba(168, 73, 235, 0.316); /* Fondo transparente */
 }
 
 .imagen {
-   
-    border-radius: 200px;
-    background: -webkit-linear-gradient(left,rgb(182, 113, 241), rgb(158, 105, 243));         
-    box-shadow: 5px 5px 5px rgb(56, 5, 122);
+    width: 100%; /* Haz que la imagen ocupe todo el ancho del contenedor */
+    max-width: 200px; /* Establece un ancho máximo para la imagen */
+    height: auto; /* Para mantener la proporción de la imagen */
+    border-radius: 50%; /* Un círculo perfecto */
+    margin: 0 auto 20px auto; /* Centra la imagen verticalmente y agrega margen inferior */
 }
-
-* {
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-}
-
 
 .names {
-font-family: 'Cinzel Decorative', cursive;
-font-size: 40px;
-margin-top: 20px;
-text-align: center;
-color: rgb(5, 0, 9);
-text-shadow: 0px 10px 0px rgba(47, 12, 81, 0.438);
-
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 4vw; /* Tamaño de fuente relativo al ancho de la pantalla */
+    margin-top: 2vw; /* Margen superior relativo */
+    text-align: center;
+    color: rgb(5, 0, 9);
+    text-shadow: 0px 2vw 0px rgba(47, 12, 81, 0.438); /* Tamaño de sombra relativo */
 }
 
-
-
-.id{
-   font-size: 30px;
-   color: rgb(13, 13, 13);
-   text-shadow: 5px 1px 2px rgba(101, 92, 218, 0.438)
+.id {
+    font-size: 3vw; /* Tamaño de fuente relativo */
+    color: rgb(13, 13, 13);
+    text-shadow: 2px 0.5vw 1vw rgba(101, 92, 218, 0.438); /* Tamaño de sombra relativo */
 }
 
-.volver{
-    color: #fff;
-    background-color: rgb(164, 105, 235);
-    display: inline-block;
-	padding:10px;
-    margin-top:0px;
+.volver {
+    font-size: 3vw; /* Tamaño de fuente relativo */
+    padding: 2vw; /* Espaciado relativo */
+    margin-top: 0px;
 }
-
-
-    
-
-.letter{
-    color: #f1ecec
-    }
 
 .type1, .type2 {
     font-family: "Merienda", cursive;
-    font-size: 40px;
-    margin-right: 30px;
-text-shadow: 1px 1px 2px rgba(174, 130, 234, 0.657)
+    font-size: 4vw; /* Tamaño de fuente relativo */
+    margin-right: 5vw; /* Margen derecho relativo */
+    text-shadow: 0.5vw 0.5vw 1vw rgba(174, 130, 234, 0.657); /* Tamaño de sombra relativo */
 }
 
-.lista{
-    font-size: 25px;
-    margin-top: 50px;
-} 
+.lista {
+    font-size: 3vw; /* Tamaño de fuente relativo */
+    margin-top: 5vw; /* Margen superior relativo */
+}
+
+/* Media queries para ajustes en diferentes tamaños de pantalla */
+@media screen and (min-width: 768px) {
+    .container {
+        padding: 30px;
+    }
+    .names {
+        font-size: 40px;
+        margin-top: 20px;
+        text-shadow: 0px 10px 0px rgba(47, 12, 81, 0.438);
+    }
+    .id {
+        font-size: 30px;
+        text-shadow: 5px 1px 2px rgba(101, 92, 218, 0.438);
+    }
+    .volver {
+        font-size: 20px;
+        padding: 10px;
+    }
+    .type1, .type2 {
+        font-size: 40px;
+        margin-right: 30px;
+        text-shadow: 1px 1px 2px rgba(174, 130, 234, 0.657);
+    }
+    .lista {
+        font-size: 25px;
+        margin-top: 50px;
+    }
+}

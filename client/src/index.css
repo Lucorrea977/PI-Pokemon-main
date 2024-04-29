@@ -6,21 +6,40 @@
   width: 100%;
   height: 100%;
 }
+
 body {
   background: url("https://wallpapers-clan.com/wp-content/uploads/2024/04/cool-pokemon-mewtwo-desktop-wallpaper-preview.jpg");
-  background-size:cover;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* Estilos específicos para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 14px; /* Reducir el tamaño de fuente para pantallas pequeñas */
+  }
+}
+
+/* Estilos específicos para pantallas medianas */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  body {
+    font-size: 16px; /* Ajustar el tamaño de fuente para pantallas medianas */
+  }
+}
+
+/* Estilos específicos para pantallas grandes */
+@media screen and (min-width: 1025px) {
+  body {
+    font-size: 18px; /* Ajustar el tamaño de fuente para pantallas grandes */
+  }
 }

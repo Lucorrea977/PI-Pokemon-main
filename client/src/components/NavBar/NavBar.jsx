@@ -10,10 +10,10 @@ export default function NavBar() {
       </Link>
       <div>
         <Link to="/create" className="created">
-          Ϟ Crea tu propio pokemon Ϟ
+           Crear pokemon
         </Link>
         <Link to="/about" className="about">
-        Ϟ Informacion Ϟ
+          Informacion 
         </Link>
       </div>
     </header>
