@@ -15,9 +15,9 @@
 /* Estilos para pantallas más pequeñas (por ejemplo, teléfonos móviles) */
 @media screen and (max-width: 767px) {
   .logo {
-    width: 115px; /* Ajusta el ancho del logo para pantallas más pequeñas */
+    width: 110px; /* Ajusta el ancho del logo para pantallas más pequeñas */
     margin-left: 0px;
-    margin-top: 2%; /* Ajusta el margen izquierdo para centrar el logo en pantallas más pequeñas */
+    margin-top: 3%; /* Ajusta el margen izquierdo para centrar el logo en pantallas más pequeñas */
   }
 }
 .created{
@@ -93,10 +93,10 @@
 /* Estilos para pantallas más pequeñas (por ejemplo, teléfonos móviles) */
 @media screen and (max-width: 767px) {
   .created, .about {
-    font-size: 15px;
+    font-size: 14px;
     padding: 6px 5px;
     margin-top: 20px;
-    margin-right: 20px;
+    margin-right: 5px;
   
  
     
