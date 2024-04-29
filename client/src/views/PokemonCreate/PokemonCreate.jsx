@@ -36,6 +36,12 @@ export default function PokemonCreate() {
     dispatch(getType());
   }, [dispatch]);
 
+  useEffect(() => {
+    if (types.length === 0) { 
+      dispatch(getType());
+    }
+  }, [dispatch, types]);
+
   function handleSelect(e) {
     setPokemon({
       ...pokemon,
@@ -163,23 +169,26 @@ export default function PokemonCreate() {
         className="input"
       />{" "}
 
-      <p className="types-s">
-        <select onChange={handleSelect}>
-          {types.map((e) => (
-            <option value={e.name}>{e.name}</option>
-          ))}{" "}
-        </select>
-        <ul>
-          {pokemon.types.map((type) => (
-            <li key={type}>
-              {type}
-              <button type="button" onClick={() => handleDelete(type)}>
-                x
-              </button>
-            </li>
-          ))}
-        </ul>
-      </p>
+      {types.length > 0 && ( 
+        <p className="types-s">
+          <select onChange={handleSelect}>
+            {types.map((e) => (
+              <option value={e.name}>{e.name}</option>
+            ))}{" "}
+          </select>
+          <ul>
+            {pokemon.types.map((type) => (
+              <li key={type}>
+                {type}
+                <button type="button" onClick={() => handleDelete(type)}>
+                  x
+                </button>
+              </li>
+            ))}
+          </ul>
+        </p>
+      )}
+
       <Link to="/home">
         <button type="submit" className="atras">
           Atrás

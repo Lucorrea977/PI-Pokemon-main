@@ -4,6 +4,7 @@ import "./Landing.css";
 
 export default function LandingPage() {
   const [name, setName] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -14,10 +15,15 @@ export default function LandingPage() {
     e.preventDefault();
 
     if (name.trim() !== "") {
+      setIsLoading(true); 
 
-      navigate("/home");
+      
+      setTimeout(() => {
+        setIsLoading(false); 
+        navigate("/home");
+      }, 2000); 
     } else {
-      alert("Por favor, ingrese su nombre artistico");
+      alert("Por favor, ingrese su nombre artístico");
     }
   };
 
@@ -28,15 +34,23 @@ export default function LandingPage() {
         <form onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="Crea tu nombre artistico"
+            placeholder="Crea tu nombre artístico"
             value={name}
             onChange={handleInputChange}
           />
-          <button className="button" type="submit">
-            Ingresar
+          <button className="button" type="submit" disabled={isLoading}>
+            {isLoading ? (
+              <img
+                src="https://pa1.narvii.com/6371/6a71990a2be0ae0fb7198865207f4f35a91d6400_hq.gif"
+                alt="Cargando..."
+                className="loading" 
+              />
+            ) : (
+              "Ingresar"
+            )}
           </button>
         </form>
       </div>
     </div>
   );
-}  
+}

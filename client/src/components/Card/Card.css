@@ -1,38 +1,38 @@
 .stylesCard {
-  background: rgba(210, 170, 247, 0.87);
-  margin: 35px;
-  width: 17rem;
-  border-radius: 10px;
+  background: rgba(163, 131, 193, 0.521);
+  margin: 10px;
+  width: 15rem;
+  border-radius: 20px;
   display: inline-block;
   transition: all 400ms ease;
   box-sizing: content-box;
   min-height: 150px;
-  border-color: #22043dda;
-  border-width: 1.5px;
-  border-style: solid;
+  border: 1.5px solid #22043dda;
+  box-shadow: rgba(243, 16, 16, 0.2) 0px 10px 20px; /* Agrega una sombra por defecto */
 }
 
 .stylesCard:hover {
-  box-shadow: 20px 20px 20px rgb(0, 0, 0, 0, 4);
+  box-shadow: rgba(222, 25, 25, 0.847) 0px 20px 40px; /* Aumenta la sombra al hacer hover */
   transform: translateY(-3%);
 }
 
 .name {
-  font-family: "Sofia", cursive;
-  font-size: 20px;
+  font-family: initial;
+  font-size: 25px;
   color: #000000;
   text-decoration: none;
 }
 
 .typeStyle {
   list-style-type: none;
-  color: #2e023b;
+  color: #070606;
   text-decoration-line: none;
   display: inline;
   padding-left: 3px;
   padding-right: 3px;
-  font-family: "Merienda", cursive;
+  font-family:initial;
   text-decoration: none;
+  font-size: 20px;
 }
 
 ul li {

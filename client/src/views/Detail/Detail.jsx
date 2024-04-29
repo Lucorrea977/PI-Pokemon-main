@@ -1,39 +1,45 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDetail } from "../../redux/actions";
-import { Link, useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import './Detail.css'
 
 export default function Detail() {
-  const { id } = useParams(); 
+  const { id } = useParams();
   const dispatch = useDispatch();
   const details = useSelector((state) => state.detail);
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
-   
     if (id) {
-      setLoading(true); // Iniciar la carga
-      dispatch(getDetail(id)).then(() => setLoading(false)); 
+      setLoading(true);
+      dispatch(getDetail(id)).then(() => setLoading(false));
     }
   }, [dispatch, id]);
 
+  const handleGoBack = () => {
+    setLoading(true);
+    navigate("/home");
+  };
+
   return (
     <div className="container">
-      <div className="volver">
-        <Link to="/home" className="letter">
-          {" "}
-          Volver{" "}
-        </Link>
-      </div>
       <div>
         {loading ? (
           <LoadingSpinner />
         ) : (
-          details.map((pokemon) => (
-            <PokemonDetail key={pokemon.id} pokemon={pokemon} />
-          ))
+          <>
+            <div className="volver">
+              <button className="letter volver-btn" onClick={handleGoBack}>
+                {" "}
+                Volver{" "}
+              </button>
+            </div>
+            {details.map((pokemon) => (
+              <PokemonDetail key={pokemon.id} pokemon={pokemon} />
+            ))}
+          </>
         )}
       </div>
     </div>
@@ -43,31 +49,25 @@ export default function Detail() {
 function PokemonDetail({ pokemon }) {
   const { name, id, types, image, hp, attack, defense, speed, height, weight } = pokemon;
 
+
+  const typesString = types.map((type) => typeof type === 'string' ? type : type.name).join(', ');
+
   return (
-    <div>
-      <h1 className="names">{name.toUpperCase()}</h1>
-      <h2 className="id">#{id}</h2>
-      <div>
-        <img className="imagen" src={image} alt={name} width="250px" height="250px" />
-        <div>
-          <h3 className="type">
-            <ul>
-              {types.map((type, index) => (
-                <li key={index}>
-                  {typeof type === 'string' ? type : type.name}
-                </li>
-              ))}
-            </ul>
-          </h3>
-        </div>
-        <div>
-          <h4>
-            <ul>
-              <li className="lista">
-                Vida: {hp} Ps | Fuerza: {attack} % | Defensa: {defense} % | Velocidad: {speed} % | Altura: {height} Mt | Peso: {weight} Kg
-              </li>
-            </ul>
-          </h4>
+    <div className="cardBox">
+      <div className="card">
+        <h1 className="names">{name.toUpperCase()}</h1>
+        <h2 className="id">#{id}</h2>
+        <img className="imagen" src={image} alt={name} />
+        <div className="content">
+          <ul>
+            <li className="lista">Tipos: {typesString}</li>
+            <li className="lista">Vida: {hp} Ps</li>
+            <li className="lista">Fuerza: {attack} %</li>
+            <li className="lista">Defensa: {defense} %</li>
+            <li className="lista">Velocidad: {speed} %</li>
+            <li className="lista">Altura: {height} Mt</li>
+            <li className="lista">Peso: {weight} Kg</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -77,7 +77,7 @@ function PokemonDetail({ pokemon }) {
 function LoadingSpinner() {
   return (
     <img
-      src="https://i.pinimg.com/originals/ea/b7/e1/eab7e1120c9dd628d3bb39a20a94927d.gif"
+      src="https://pa1.narvii.com/6371/6a71990a2be0ae0fb7198865207f4f35a91d6400_hq.gif"
       alt="Cargando..."
     />
   );
