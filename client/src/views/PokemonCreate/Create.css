@@ -1,68 +1,84 @@
-*{box-sizing:border-box;}
-
-.form {
-    width:300px;
-	height: 660x;
+* {
+	box-sizing: border-box;
+  }
+  
+  .form {
+	width: 100%;
+	max-width: 360px;
 	padding: 15px;
-	margin: 0px;
-	background:rgba(64, 1, 136, 0.411);
-	margin-left: auto;
-	margin-right:auto;
+	margin: 0 auto;
+	background: rgba(64, 1, 136, 0.411);
 	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.438);
-}
-.input{
+  }
+  
+  .input {
+	width: 100%;
 	outline: none;
-}
-.title{
-font-size: 23px;
-color: #fff;
-font-family:  Geneva, Tahoma, sans-serif;
-} 
-
-label {
-	margin: 7px;
-    display: block;
-    padding-left: 15px;
-    text-indent: -15px;
+  }
+  
+  .title {
+	font-size: 23px;
 	color: #fff;
-	outline: none;
-}
-.error{
-	color:rgb(255, 0, 0);
+	font-family: Geneva, Tahoma, sans-serif;
+	text-align: center;
+  }
+  
+  label {
+	margin: 7px 0;
+	display: block;
+	color: #fff;
+	text-align: left;
+  }
+  
+  .error {
+	color: rgb(255, 0, 0);
 	margin-top: 2px;
 	font-size: 14px;
-}
-
-.types-s{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin: 5px;
+  }
+  
+  .types-s {
+	margin: 12px 0;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-
-.bottom{
+  }
+  
+  .bottom, .atras {
+	width: 100%;
 	background-color: rgb(26, 0, 51);
 	border-radius: 5px;
-	padding: 8px;
-	color: rgb(243, 231, 255) ;
-	margin-left: auto;
-	margin-right: auto;
+	color: rgb(243, 231, 255);
 	margin-top: 12px;
-	cursor:pointer
-}
-
-.atras{
-	background-color: rgb(26, 0, 51);
-	border-radius: 5px;
-	color: rgb(243, 231, 255) ;
-	margin-right: 20px;
-	cursor:pointer;
+	cursor: pointer;
 	padding: 8px;
-}
-
-button{
-	align-content: center;
-	margin-top: 5px;	
-}
+  }
+  
+  .atras {
+	margin-right: 0;
+  }
+  
+  .button-group {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+  }
+  
+  @media only screen and (max-width: 480px) {
+	.form {
+	  padding: 10px;
+	}
+  
+	.title {
+	  font-size: 20px;
+	}
+  
+	label {
+	  font-size: 14px;
+	}
+  
+	.input, .bottom, .atras {
+	  font-size: 14px;
+	}
+  
+	.error {
+	  font-size: 12px;
+	}
+  }

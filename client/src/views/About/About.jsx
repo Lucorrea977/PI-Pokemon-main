@@ -12,7 +12,7 @@ export default function About() {
     <div className="about-container">
 
       <h2 className="about-header">Acerca de la web</h2>
-      <p className="about-content">Bienvenido a la página "Poképedia". Mi nombre es Luana Correa y soy la creadora de esta web.</p>
+      <p className="about-content">Bienvenido a "Poképedia". Mi nombre es Luana Correa y soy la creadora de esta web.</p>
       <p className="about-content">Poképedia es una herramienta diseñada para los amantes de los Pokémon, donde puedes explorar información detallada sobre cada criatura, así como también interactuar para crear tus propios Pokémon personalizados.</p>
       <p className="about-content">El objetivo es proporcionarte una experiencia interactiva y educativa sobre el fascinante mundo de los Pokémon.</p>
       <img src={pok} alt="Pokémon" className="pok-gif" />

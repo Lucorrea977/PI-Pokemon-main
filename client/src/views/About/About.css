@@ -1,9 +1,9 @@
 .about-container {
-  max-width: 800px;
+  max-width: 90%; /* Establece el ancho máximo al 90% del tamaño de la pantalla */
   margin: 0 auto;
-  padding: 100px;
-  background-color: rgba(245, 235, 247, 0.527); /* Fondo transparente */
-  font-family: 'Times New Roman', Times, serif;
+  padding: 50px; /* Reducimos el relleno para dispositivos móviles */
+  background-color: rgba(213, 81, 240, 0.259); /* Fondo transparente */
+  font-family: initial
 }
 
 
@@ -52,11 +52,11 @@
 }
 
 .about-social img {
-  width: 40px;
-  height: 40px;
+  width: 30px; /* Reducimos el tamaño de los íconos para dispositivos móviles */
+  height: 30px; /* Reducimos el tamaño de los íconos para dispositivos móviles */
   border-radius: 50%;
   transition: transform 0.3s;
-  margin-right: 20px; /* Agrega un margen derecho entre los íconos */
+  margin-right: 10px; /* Agrega un margen derecho más pequeño para dispositivos móviles */
 }
 
 .about-social img:last-child {
@@ -68,8 +68,12 @@
   transform: scale(1.2);
 }
 
-
 .pok-gif{
-  width: 320px;
-  right: 100px;
+
+  left: 10px;
+}
+.pok-gif {
+  width: 100%; /* Hacemos que el gif se ajuste al ancho del contenedor */
+  max-width: 400px; /* Establecemos un ancho máximo para el gif */
+  margin: 20px auto; /* Centramos el gif y agregamos espacio alrededor */
 }
