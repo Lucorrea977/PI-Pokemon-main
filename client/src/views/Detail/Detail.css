@@ -1,18 +1,18 @@
 .cardBox {
     width: 430px;
-    height: 640px;
+    height: 620px;
     position: relative;
     overflow: hidden;
     border-radius: 20px;
     box-shadow: rgba(183, 16, 16, 0.941) 0px 2px 10px 0px,
       rgba(183, 23, 23, 0.5) 0px 2px 25px 0px;
     margin: 0 auto; /* Esto centrará la tarjeta horizontalmente */
-  margin-top: 30px;
+  margin-top: 10px;
 }
   
   .card {
     position: absolute;
-    width: 97%;
+    width: 98%;
     height: 97%;
     background: #8038d47b;
     border-radius: 20px;
@@ -20,14 +20,14 @@
     flex-direction:column;
     align-items: center;
     justify-content: space-around;
-    padding: -4px;
+    padding: 0px;
     color: #090606;
   }
   
   .names {
     font-family:initial;
     font-size: 24px;
-    margin-top: 40px;
+    margin-top: 45px;
   }
   
   .id {
@@ -37,18 +37,19 @@
   }
   
   .imagen {
-    width: 240px;
+    width: 200px;
     height: 300px;
     border-radius: 50%;
   }
   
   .content {
-    margin-top: -10%;
+    margin-top: -5%;
   }
   
   .lista {
-    font-size: 17px;
-    margin-top: 16px;
+    font-size: 16px;
+    margin-top: 10px;
+
     font-family: initial;
     margin-right: 45px;
   }
@@ -66,12 +67,14 @@
   /* Estilos para el botón "Volver" */
 .volver-btn {
   font-size: 20px;
-  padding: 10px 20px;
+  padding: 5px 20px;
   text-decoration: none;
   color: #fff;
   background-color: #6128b7b9; /* Cambiar al color deseado */
   border-radius: 10px;
   transition: background-color 0.3s ease;
+  margin-top:  20px ;
+
 }
 
 .volver-btn:hover {
@@ -87,8 +90,8 @@
     }
     
     .imagen {
-      width: 200px;
-      height: 200px;
+      width: 150px;
+      height: 150px;
     }
     
     .names {
@@ -102,7 +105,7 @@
     
     .lista {
       font-size: 14px;
-      margin-top: 1%;
+      margin-top: 3%;
       padding-top: 3%;
       font-family: initial;
     }

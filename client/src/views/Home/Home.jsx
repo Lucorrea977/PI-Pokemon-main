@@ -14,7 +14,7 @@ function Home() {
 
   useEffect(() => {
     dispatch(getPokemons());
-  }, [dispatch]);
+  }, [dispatch])
 
   return (
     <>
