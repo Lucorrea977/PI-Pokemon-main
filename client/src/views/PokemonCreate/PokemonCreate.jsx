@@ -15,27 +15,27 @@ function validate(pokemon) {
     errors.name = "El nombre debe tener entre 3 y 50 caracteres";
   }
 
-  if (pokemon.hp < 4 || pokemon.hp > 999) {
+  if (pokemon.hp < 0 || pokemon.hp > 999) {
     errors.hp = "La vida debe ser un número entre 0 y 999";
   }
 
-  if (pokemon.attack < 4 || pokemon.attack > 999) {
+  if (pokemon.attack < 0 || pokemon.attack > 999) {
     errors.attack = "La fuerza debe ser un número entre 0 y 999";
   }
 
-  if (pokemon.defense < 4 || pokemon.defense > 999) {
+  if (pokemon.defense < 0 || pokemon.defense > 999) {
     errors.defense = "La defensa debe ser un número entre 0 y 999";
   }
 
-  if (pokemon.speed < 4 || pokemon.speed > 999) {
+  if (pokemon.speed < 0 || pokemon.speed > 999) {
     errors.speed = "La velocidad debe ser un número entre 0 y 999";
   }
 
-  if (pokemon.height < 4 || pokemon.height > 999) {
+  if (pokemon.height < 0 || pokemon.height > 999) {
     errors.height = "La altura debe ser un número entre 0 y 999";
   }
 
-  if (pokemon.weight < 4 || pokemon.weight > 999) {
+  if (pokemon.weight < 0 || pokemon.weight > 999) {
     errors.weight = "El peso debe ser un número entre 0 y 999";
   }
 

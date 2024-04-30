@@ -3,7 +3,7 @@ const initialState = {
   allPokemons: [],
   detail: [],
   types: [],
-  filters: {}, 
+  filters: {},
 };
 
 function rootReducer(state = initialState, action) {
@@ -21,16 +21,29 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         pokemons: typeFiltered,
+        filters: {
+          ...state.filters,
+          type: action.payload,
+        },
       };
     case "FILTER_CREATED":
-      const createdFilter =
-        action.payload === "Creados"
-          ? state.allPokemons.filter((e) => e.id.length > 2)
-          : state.allPokemons.filter((e) => e.id <= 40);
+      let createdFilter;
+      if (action.payload === "Creados") {
+        createdFilter = state.allPokemons.filter((e) => e.created);
+      } else if (action.payload === "Existentes") {
+        createdFilter = state.allPokemons.filter((e) => !e.created);
+      } else {
+        createdFilter = state.allPokemons;
+      }
       return {
         ...state,
         pokemons: action.payload === "Todos" ? state.allPokemons : createdFilter,
+        filters: {
+          ...state.filters,
+          created: action.payload,
+        },
       };
+
     case "FILTER_BY_ATTACK":
       let attackFilter = [...state.allPokemons];
       attackFilter = attackFilter.sort((a, b) => {
@@ -45,6 +58,10 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         pokemons: action.payload === "Fuerza" ? state.allPokemons : attackFilter,
+        filters: {
+          ...state.filters,
+          attack: action.payload,
+        },
       };
     case "SORT":
       let orderedPokemons = [...state.pokemons];
@@ -60,6 +77,10 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         pokemons: action.payload === "Ordenar A-Z" ? state.allPokemons : orderedPokemons,
+        filters: {
+          ...state.filters,
+          sort: action.payload,
+        },
       };
     case "SEARCH_NAME":
       return {

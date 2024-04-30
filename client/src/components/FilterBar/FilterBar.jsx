@@ -9,31 +9,19 @@ function FilterBar() {
   const handleFilterType = (e) => {
     const { value } = e.target;
     dispatch(filterByType(value));
-    
-    if (value === "") {
-      dispatch(filterCreated(""));
-      dispatch(filterByAttack(""));
-    }
   };
-  
+
   const handleFilterCreated = (e) => {
     const { value } = e.target;
     dispatch(filterCreated(value));
- 
-    if (value === "") {
+    if (value !== "") {
       dispatch(filterByType(""));
-      dispatch(filterByAttack(""));
     }
   };
-  
+
   const handleFilterAttack = (e) => {
     const { value } = e.target;
     dispatch(filterByAttack(value));
-
-    if (value === "") {
-      dispatch(filterByType(""));
-      dispatch(filterCreated(""));
-    }
   };
 
   const onSelectsChange = (e) => {

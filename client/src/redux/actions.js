@@ -6,7 +6,7 @@ export function postPokemon(payload) {
       const response = await axios.post("/pokemons", payload);
       return response;
     } catch (error) {
-     
+
     }
   };
 }
@@ -20,7 +20,7 @@ export function searchPoke(name) {
         payload: json.data,
       });
     } catch (error) {
-      
+
       alert("No se encontró el Pokémon");
     }
   };
@@ -63,7 +63,6 @@ export function getPokemons() {
         payload: json.data,
       });
     } catch (error) {
-    
     }
   };
 }
@@ -77,7 +76,6 @@ export function getDetail(id) {
         payload: json.data,
       });
     } catch (error) {
-     
     }
   };
 }
@@ -91,7 +89,6 @@ export function getType() {
         payload: json.data,
       });
     } catch (error) {
-    
-    }
-  };
+    };
+  }
 }

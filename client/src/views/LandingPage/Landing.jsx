@@ -15,13 +15,13 @@ export default function LandingPage() {
     e.preventDefault();
 
     if (name.trim() !== "") {
-      setIsLoading(true); 
+      setIsLoading(true);
 
-      
+
       setTimeout(() => {
-        setIsLoading(false); 
+        setIsLoading(false);
         navigate("/home");
-      }, 2000); 
+      }, 2000);
     } else {
       alert("Por favor, ingrese un nombre ");
     }
@@ -43,7 +43,7 @@ export default function LandingPage() {
               <img
                 src="https://pa1.narvii.com/6371/6a71990a2be0ae0fb7198865207f4f35a91d6400_hq.gif"
                 alt="Cargando..."
-                className="loading" 
+                className="loading"
               />
             ) : (
               "Ingresar"
