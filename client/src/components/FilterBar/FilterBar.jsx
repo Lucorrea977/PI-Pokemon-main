@@ -9,16 +9,31 @@ function FilterBar() {
   const handleFilterType = (e) => {
     const { value } = e.target;
     dispatch(filterPokemonsByType(value));
+    // Si se selecciona el valor vacío, restablecer los filtros de los otros criterios
+    if (value === "") {
+      dispatch(filterCreated(""));
+      dispatch(filterByAttack(""));
+    }
   };
-
+  
   const handleFilterCreated = (e) => {
     const { value } = e.target;
     dispatch(filterCreated(value));
+    // Si se selecciona el valor vacío, restablecer los filtros de los otros criterios
+    if (value === "") {
+      dispatch(filterPokemonsByType(""));
+      dispatch(filterByAttack(""));
+    }
   };
-
+  
   const handleFilterAttack = (e) => {
     const { value } = e.target;
     dispatch(filterByAttack(value));
+    // Si se selecciona el valor vacío, restablecer los filtros de los otros criterios
+    if (value === "") {
+      dispatch(filterPokemonsByType(""));
+      dispatch(filterCreated(""));
+    }
   };
 
   const onSelectsChange = (e) => {
@@ -42,7 +57,7 @@ function FilterBar() {
         ))}
       </select>
       <select name="filterCreated" value={filters.created} onChange={handleFilterCreated}>
-        <option value="">Creados</option>
+       
         <option value="Creados">Creados</option>
         <option value="Existentes">Existentes</option>
       </select>

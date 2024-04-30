@@ -9,6 +9,7 @@ function PokemonList({ pokemons }) {
   const indexOfLastPokemon = currentPage * pokemonsPerPage;
   const indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage;
   const currentPokemons = pokemons.slice(indexOfFirstPokemon, indexOfLastPokemon);
+  const totalPages = Math.ceil(pokemons.length / pokemonsPerPage);
 
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -16,12 +17,17 @@ function PokemonList({ pokemons }) {
 
   return (
     <div className="pokemon-list">
-      <Paginado pokemonsPerPage={pokemonsPerPage} allPokemons={pokemons.length} paginado={paginado} />
+      {totalPages > 1 && (
+        <Paginado pokemonsPerPage={pokemonsPerPage} allPokemons={pokemons.length} paginado={paginado} currentPage={currentPage} />
+      )}
       {currentPokemons.map((pokemon) => (
         <Link key={pokemon.id} to={`/home/${pokemon.id}`}>
           <CardPokemon {...pokemon} />
         </Link>
       ))}
+      {totalPages === 1 && (
+        <Paginado pokemonsPerPage={pokemonsPerPage} allPokemons={pokemons.length} paginado={paginado} currentPage={currentPage} />
+      )}
     </div>
   );
 }

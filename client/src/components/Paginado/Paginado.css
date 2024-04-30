@@ -1,24 +1,36 @@
-.number {
+.paginado {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .number {
     margin-left: 10px;
     align-items: center;
     display: inline;
     padding: 8px;
-    }
-    
-.btn {
+  }
+  
+  .btn {
     background-color: rgb(255, 255, 255);
     border-radius: 20px;
     transition-duration: 0.4s;
     width: 30px;
     height: 30px;
     margin-top: 10px;
-}
-
-.btn:focus
-{outline:none }
-
-.btn:hover {
-    cursor:pointer;
-    background-color: #290035 ;
-    color: rgb(255, 255, 255)
-}
+  }
+  
+  .btn:focus {
+    outline: none;
+  }
+  
+  .btn:hover {
+    cursor: pointer;
+    background-color: #290035;
+    color: rgb(255, 255, 255);
+  }
+  
+  .active .btn {
+    background-color: #7700ff9a;
+    color: #fff;
+  }
