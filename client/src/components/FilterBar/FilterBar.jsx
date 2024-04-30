@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filterPokemonsByType, filterCreated, filterByAttack, Sort } from "../../redux/actions";
+import { filterByType, filterCreated, filterByAttack, Sort } from "../../redux/actions";
 
 function FilterBar() {
   const dispatch = useDispatch();
@@ -8,8 +8,8 @@ function FilterBar() {
 
   const handleFilterType = (e) => {
     const { value } = e.target;
-    dispatch(filterPokemonsByType(value));
-    // Si se selecciona el valor vacío, restablecer los filtros de los otros criterios
+    dispatch(filterByType(value));
+    
     if (value === "") {
       dispatch(filterCreated(""));
       dispatch(filterByAttack(""));
@@ -19,9 +19,9 @@ function FilterBar() {
   const handleFilterCreated = (e) => {
     const { value } = e.target;
     dispatch(filterCreated(value));
-    // Si se selecciona el valor vacío, restablecer los filtros de los otros criterios
+ 
     if (value === "") {
-      dispatch(filterPokemonsByType(""));
+      dispatch(filterByType(""));
       dispatch(filterByAttack(""));
     }
   };
@@ -29,9 +29,9 @@ function FilterBar() {
   const handleFilterAttack = (e) => {
     const { value } = e.target;
     dispatch(filterByAttack(value));
-    // Si se selecciona el valor vacío, restablecer los filtros de los otros criterios
+
     if (value === "") {
-      dispatch(filterPokemonsByType(""));
+      dispatch(filterByType(""));
       dispatch(filterCreated(""));
     }
   };
@@ -57,7 +57,7 @@ function FilterBar() {
         ))}
       </select>
       <select name="filterCreated" value={filters.created} onChange={handleFilterCreated}>
-       
+        <option value="">Origen</option>
         <option value="Creados">Creados</option>
         <option value="Existentes">Existentes</option>
       </select>

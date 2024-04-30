@@ -6,7 +6,7 @@ export function postPokemon(payload) {
       const response = await axios.post("/pokemons", payload);
       return response;
     } catch (error) {
-      // Manejar el error
+     
     }
   };
 }
@@ -14,28 +14,22 @@ export function postPokemon(payload) {
 export function searchPoke(name) {
   return async function (dispatch) {
     try {
-      var json = await axios.get("/pokemons?name=" + name);
+      const json = await axios.get("/pokemons?name=" + name);
       return dispatch({
         type: "SEARCH_NAME",
         payload: json.data,
       });
-    } catch {
-      alert("No se encontró el pokemon");
+    } catch (error) {
+      
+      alert("No se encontró el Pokémon");
     }
   };
 }
 
-export function filterPokemonsByType(payload) {
+export function filterByType(payload) {
   return {
     type: "FILTER_BY_TYPE",
     payload,
-  };
-}
-
-export function Sort(order) {
-  return {
-    type: "SORT",
-    payload: order,
   };
 }
 
@@ -53,37 +47,51 @@ export function filterByAttack(payload) {
   };
 }
 
+export function Sort(payload) {
+  return {
+    type: "SORT",
+    payload,
+  };
+}
+
 export function getPokemons() {
   return async function (dispatch) {
-    var json = await axios.get("/pokemons");
-    dispatch({
-      type: "GET_POKEMONS",
-      payload: json.data,
-    });
+    try {
+      const json = await axios.get("/pokemons");
+      dispatch({
+        type: "GET_POKEMONS",
+        payload: json.data,
+      });
+    } catch (error) {
+    
+    }
   };
 }
 
 export function getDetail(id) {
   return async function (dispatch) {
     try {
-      var json = await axios.get(`/pokemons/${id}`);
+      const json = await axios.get(`/pokemons/${id}`);
       return dispatch({
         type: "GET_DETAILS",
         payload: json.data,
       });
     } catch (error) {
-      // Manejar el error
+     
     }
   };
 }
 
 export function getType() {
   return async function (dispatch) {
-    var json = await axios.get("/types");
-    return dispatch({
-      type: "GET_TYPE",
-      payload: json.data,
-    });
+    try {
+      const json = await axios.get("/types");
+      return dispatch({
+        type: "GET_TYPE",
+        payload: json.data,
+      });
+    } catch (error) {
+    
+    }
   };
 }
-

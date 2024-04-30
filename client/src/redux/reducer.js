@@ -17,9 +17,7 @@ function rootReducer(state = initialState, action) {
     case "FILTER_BY_TYPE":
       const allPokemons = state.allPokemons;
       const typeFiltered =
-        action.payload === "type"
-          ? allPokemons
-          : allPokemons.filter((e) => e.types.includes(action.payload));
+        action.payload === "" ? allPokemons : allPokemons.filter((e) => e.types.includes(action.payload));
       return {
         ...state,
         pokemons: typeFiltered,
@@ -31,11 +29,10 @@ function rootReducer(state = initialState, action) {
           : state.allPokemons.filter((e) => e.id <= 40);
       return {
         ...state,
-        pokemons:
-          action.payload === "Todos" ? state.allPokemons : createdFilter,
+        pokemons: action.payload === "Todos" ? state.allPokemons : createdFilter,
       };
     case "FILTER_BY_ATTACK":
-      let attackFilter = [...state.pokemons];
+      let attackFilter = [...state.allPokemons];
       attackFilter = attackFilter.sort((a, b) => {
         if (a.attack < b.attack) {
           return action.payload === "Mayor fuerza" ? 1 : -1;
@@ -47,12 +44,11 @@ function rootReducer(state = initialState, action) {
       });
       return {
         ...state,
-        pokemons:
-          action.payload === "Fuerza" ? state.allPokemons : attackFilter,
+        pokemons: action.payload === "Fuerza" ? state.allPokemons : attackFilter,
       };
     case "SORT":
-      let orderedCharacters = [...state.pokemons];
-      orderedCharacters = orderedCharacters.sort((a, b) => {
+      let orderedPokemons = [...state.pokemons];
+      orderedPokemons = orderedPokemons.sort((a, b) => {
         if (a.name < b.name) {
           return action.payload === "ASCENDENTE" ? -1 : 1;
         }
@@ -61,11 +57,9 @@ function rootReducer(state = initialState, action) {
         }
         return 0;
       });
-
       return {
         ...state,
-        pokemons:
-          action.payload === "Filtro" ? state.allPokemons : orderedCharacters,
+        pokemons: action.payload === "Ordenar A-Z" ? state.allPokemons : orderedPokemons,
       };
     case "SEARCH_NAME":
       return {
@@ -75,7 +69,7 @@ function rootReducer(state = initialState, action) {
     case "GET_DETAILS":
       return {
         ...state,
-        detail:  action.payload,
+        detail: action.payload,
       };
     case "GET_TYPE":
       return {
