@@ -23,7 +23,7 @@ export default function LandingPage() {
         navigate("/home");
       }, 2000); 
     } else {
-      alert("Por favor, ingrese su nombre artístico");
+      alert("Por favor, ingrese un nombre ");
     }
   };
 
@@ -34,7 +34,7 @@ export default function LandingPage() {
         <form onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="Crea tu nombre artístico"
+            placeholder="ingresar nombre"
             value={name}
             onChange={handleInputChange}
           />
