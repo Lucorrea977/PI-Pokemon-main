@@ -25,9 +25,6 @@ function PokemonList({ pokemons }) {
           <CardPokemon {...pokemon} />
         </Link>
       ))}
-      {totalPages === 1 && (
-        <Paginado pokemonsPerPage={pokemonsPerPage} allPokemons={pokemons.length} paginado={paginado} currentPage={currentPage} />
-      )}
     </div>
   );
 }

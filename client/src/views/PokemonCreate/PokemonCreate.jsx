@@ -1,8 +1,7 @@
-
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getType, postPokemon } from "../../redux/actions";
+import { getType, postPokemon  } from "../../redux/actions";
 
 import "./Create.css";
 
@@ -11,8 +10,10 @@ function validate(pokemon) {
 
   if (!pokemon.name) {
     errors.name = "Se requiere un nombre";
-  } else if (pokemon.name.length < 3 || pokemon.name.length > 50) {
-    errors.name = "El nombre debe tener entre 3 y 50 caracteres";
+  } else if (!/^[a-zA-Z]+$/.test(pokemon.name)) {
+    errors.name = "El nombre solo puede contener letras";
+  } else if (pokemon.name.length < 3 || pokemon.name.length > 30) {
+    errors.name = "El nombre debe tener entre 3 y 30 caracteres";
   }
 
   if (pokemon.hp < 0 || pokemon.hp > 999) {
@@ -45,7 +46,6 @@ function validate(pokemon) {
 
   return errors;
 }
-
 export default function PokemonCreate() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -75,10 +75,13 @@ export default function PokemonCreate() {
   }, [dispatch, types]);
 
   function handleSelect(e) {
-    setPokemon({
-      ...pokemon,
-      types: [...pokemon.types, e.target.value],
-    });
+    const selectedType = e.target.value;
+    if (!pokemon.types.includes(selectedType)) {
+      setPokemon({
+        ...pokemon,
+        types: [...pokemon.types, selectedType],
+      });
+    }
   }
 
   function handleDelete(type) {
@@ -104,7 +107,7 @@ export default function PokemonCreate() {
 
   async function handleGoBack() {
     // Simulamos una carga interna esperando 500ms antes de volver atrás
-    await new Promise(resolve => setTimeout(resolve, 500));
+    await new Promise(resolve => setTimeout(resolve, 1000));
     navigate("/home");
   }
 
@@ -133,99 +136,99 @@ export default function PokemonCreate() {
     }
   }
 
-  return (
-    <form className="form" onSubmit={onSubmit}>
-      <h3 className="title"> ¡Crea tu pokemon!</h3>
+ return (
+  <form className="form" onSubmit={onSubmit}>
+    <h3 className="title">¡Crea tu pokemon!</h3>
 
-      <label htmlFor="name"> Nombre: </label>
-      <input
-        onChange={onInputChange}
-        id="name"
-        name="name"
-        type="text"
-        value={pokemon.name}
-        required
-        className="input"
-      />
-      {errors.name && <p className="error">{errors.name}</p>}
+    <label htmlFor="name"> Nombre: </label>
+    <input
+      onChange={onInputChange}
+      id="name"
+      name="name"
+      type="text"
+      value={pokemon.name}
+      required
+      className="input"
+    />
+    {errors.name && <p className="error">{errors.name}</p>}
 
-      <label htmlFor="image"> Imagen: </label>
-      <input
-        onChange={onInputChange}
-        id="image"
-        name="image"
-        type="text"
-        value={pokemon.image}
-        className="input"
-      />
+    <label htmlFor="image"> Imagen: </label>
+    <input
+      onChange={onInputChange}
+      id="image"
+      name="image"
+      type="text"
+      value={pokemon.image}
+      className="input"
+    />
 
-      <label htmlFor="hp"> Vida: </label>
-      <input
-        onChange={onInputChange}
-        id="hp"
-        name="hp"
-        type="number"
-        value={pokemon.hp}
-        className="input"
-      />
-      {errors.hp && <p className="error">{errors.hp}</p>}
+    <label htmlFor="hp"> Vida: </label>
+    <input
+      onChange={onInputChange}
+      id="hp"
+      name="hp"
+      type="number"
+      value={pokemon.hp}
+      className="input"
+    />
+    {errors.hp && <p className="error">{errors.hp}</p>}
 
-      <label htmlFor="attack"> Fuerza: </label>
-      <input
-        onChange={onInputChange}
-        id="attack"
-        name="attack"
-        type="number"
-        value={pokemon.attack}
-        className="input"
-      />
-      {errors.attack && <p className="error">{errors.attack}</p>}
+    <label htmlFor="attack"> Fuerza: </label>
+    <input
+      onChange={onInputChange}
+      id="attack"
+      name="attack"
+      type="number"
+      value={pokemon.attack}
+      className="input"
+    />
+    {errors.attack && <p className="error">{errors.attack}</p>}
 
-      <label htmlFor="defense"> Defensa: </label>
-      <input
-        onChange={onInputChange}
-        id="defense"
-        name="defense"
-        type="number"
-        value={pokemon.defense}
-        className="input"
-      />
-      {errors.defense && <p className="error">{errors.defense}</p>}
+    <label htmlFor="defense"> Defensa: </label>
+    <input
+      onChange={onInputChange}
+      id="defense"
+      name="defense"
+      type="number"
+      value={pokemon.defense}
+      className="input"
+    />
+    {errors.defense && <p className="error">{errors.defense}</p>}
 
-      <label htmlFor="speed"> Velocidad: </label>
-      <input
-        onChange={onInputChange}
-        id="speed"
-        name="speed"
-        type="number"
-        value={pokemon.speed}
-        className="input"
-      />
-      {errors.speed && <p className="error">{errors.speed}</p>}
+    <label htmlFor="speed"> Velocidad: </label>
+    <input
+      onChange={onInputChange}
+      id="speed"
+      name="speed"
+      type="number"
+      value={pokemon.speed}
+      className="input"
+    />
+    {errors.speed && <p className="error">{errors.speed}</p>}
 
-      <label htmlFor="height"> Altura: </label>
-      <input
-        onChange={onInputChange}
-        id="height"
-        name="height"
-        type="number"
-        value={pokemon.height}
-        className="input"
-      />
-      {errors.height && <p className="error">{errors.height}</p>}
+    <label htmlFor="height"> Altura: </label>
+    <input
+      onChange={onInputChange}
+      id="height"
+      name="height"
+      type="number"
+      value={pokemon.height}
+      className="input"
+    />
+    {errors.height && <p className="error">{errors.height}</p>}
 
-      <label htmlFor="weight"> Peso: </label>
-      <input
-        onChange={onInputChange}
-        id="weight"
-        name="weight"
-        type="number"
-        value={pokemon.weight}
-        className="input"
-      />
-      {errors.weight && <p className="error">{errors.weight}</p>}
+    <label htmlFor="weight"> Peso: </label>
+    <input
+      onChange={onInputChange}
+      id="weight"
+      name="weight"
+      type="number"
+      value={pokemon.weight}
+      className="input"
+    />
+    {errors.weight && <p className="error">{errors.weight}</p>}
 
-      {types.length > 0 && (
+    {types.length > 0 && (
         <div className="types-s">
           <label htmlFor="type-select"> Tipos: </label>
           <select id="type-select" onChange={handleSelect} value="">
@@ -238,28 +241,27 @@ export default function PokemonCreate() {
               </option>
             ))}
           </select>
-          {errors.types && <p className="error">{errors.types}</p>}
-          <ul>
-            {pokemon.types.map((type) => (
-              <li key={type}>
-                {type}
-                <button type="button" onClick={() => handleDelete(type)}>
-                  x
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      <div className="button-group">
-        <button type="button" className="atras" onClick={handleGoBack}>
-          Atrás
-        </button>
-        <button type="submit" className="bottom">
-          Crear
-        </button>
+        {errors.types && <p className="error">{errors.types}</p>}
+        <ul>
+          {pokemon.types.map((type) => (
+            <li key={type}>
+              {type}
+              <button type="button" onClick={() => handleDelete(type)}>
+                x
+              </button>
+            </li>
+          ))}
+        </ul>
       </div>
-    </form>
-  );
-}
+    )}
+
+    <div className="button-group">
+      <button type="button" className="atras" onClick={handleGoBack}>
+        Atrás
+      </button>
+      <button type="submit" className="bottom">
+        Crear
+      </button>
+    </div>
+  </form>
+)}

@@ -5,7 +5,7 @@ const router = Router();
 
 router.get("/", async (req, res, next) => {
   try {
-    let name = req.query.name;
+    const name = req.query.name;
     let pokemons = await getPokemons(name);
     res.status(200).send(pokemons);
   } catch (error) {
@@ -27,7 +27,7 @@ router.get("/:id", async (req, res, next) => {
 
 router.post("/", async (req, res, next) => {
   try {
-    let { name, image, hp, attack, defense, speed, height, weight, types } = req.body;
+    const { name, image, hp, attack, defense, speed, height, weight, types } = req.body;
     let newPokemon = await createPokemon(name, image, hp, attack, defense, speed, height, weight, types);
     res.status(201).json({ message: "Pokemon creado exitosamente", pokemon: newPokemon });
   } catch (error) {

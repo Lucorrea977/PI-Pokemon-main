@@ -15,9 +15,10 @@ function FilterBar() {
     const { value } = e.target;
     dispatch(filterCreated(value));
     if (value !== "") {
-      dispatch(filterByType(""));
+      dispatch(filterByType("")); // Limpiar el filtro de tipo cuando se seleccione un origen
     }
   };
+  
 
   const handleFilterAttack = (e) => {
     const { value } = e.target;

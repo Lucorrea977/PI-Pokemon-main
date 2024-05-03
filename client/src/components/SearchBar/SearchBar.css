@@ -26,3 +26,14 @@
     background: #290035;
 
 }
+.boton.loading {
+    padding-left: 45px; /* Espacio para el GIF */
+  }
+  
+  .boton.loading img.loading {
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
