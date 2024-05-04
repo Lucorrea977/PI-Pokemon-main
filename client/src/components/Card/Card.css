@@ -27,6 +27,10 @@
   font-family: initial;
   color: black;
 }
+.more-types{
+  margin-top: -25px;
+  font-size: 13px;
+}
 
 .typeStyle {
   list-style-type: none;

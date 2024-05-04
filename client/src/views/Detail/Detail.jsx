@@ -49,7 +49,6 @@ export default function Detail() {
 function PokemonDetail({ pokemon }) {
   const { name, id, types, image, hp, attack, defense, speed, height, weight } = pokemon;
 
-
   const typesString = types.map((type) => typeof type === 'string' ? type : type.name).join(', ');
 
   return (

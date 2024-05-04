@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filterByType, filterCreated, filterByAttack, Sort } from "../../redux/actions";
+import { filterByType, filterCreated, filterByAttack, Sort, getType } from "../../redux/actions";
 
 function FilterBar() {
   const dispatch = useDispatch();
   const filters = useSelector((state) => state.filters);
+  const types = useSelector((state) => state.types.map((type) => type.name));
+
+  useEffect(() => {
+    dispatch(getType());
+  }, [dispatch]);
 
   const handleFilterType = (e) => {
     const { value } = e.target;
@@ -15,10 +20,9 @@ function FilterBar() {
     const { value } = e.target;
     dispatch(filterCreated(value));
     if (value !== "") {
-      dispatch(filterByType("")); // Limpiar el filtro de tipo cuando se seleccione un origen
+      dispatch(filterByType("")); 
     }
   };
-  
 
   const handleFilterAttack = (e) => {
     const { value } = e.target;
@@ -30,16 +34,11 @@ function FilterBar() {
     dispatch(Sort(value));
   };
 
-  const pokemonTypes = [
-    "normal", "flying", "poison", "ground", "bug",
-    "fire", "water", "grass", "electric", "fairy"
-  ];
-
   return (
     <div className="filter-bar">
       <select name="filterType" value={filters.type} onChange={handleFilterType}>
         <option value="">Tipos</option>
-        {pokemonTypes.map((type) => (
+        {types.map((type) => (
           <option key={type} value={type}>
             {type.charAt(0).toUpperCase() + type.slice(1)}
           </option>

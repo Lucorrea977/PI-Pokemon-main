@@ -27,5 +27,4 @@ const FilterPokemons = (allPokemons, filters) => {
   return filtered;
 };
 
-export default FilterPokemons;
-
+export default FilterPokemons; 

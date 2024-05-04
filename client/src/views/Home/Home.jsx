@@ -4,7 +4,7 @@ import { getPokemons } from "../../redux/actions";
 import NavBar from "../../components/NavBar/NavBar";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import FilterBar from "../../components/FilterBar/FilterBar";
-import PokemonList from "../../components/PokemonList/List";
+import PokemonList from "../../components/PokemonList/ListPag";
 import FilterPokemons from "../../components/FilterBar/FilterPokemons";
 import "./Home.css";
 

@@ -90,5 +90,4 @@ export function getType() {
       });
     } catch (error) {
     };
-  }
-}
+  }}
