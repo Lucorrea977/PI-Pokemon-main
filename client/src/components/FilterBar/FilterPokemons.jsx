@@ -2,7 +2,11 @@ const FilterPokemons = (allPokemons, filters) => {
   let filtered = [...allPokemons];
 
   if (filters.type) {
-    filtered = filtered.filter(pokemon => pokemon.types.includes(filters.type));
+    const pokemonNormal = filtered.filter(pokemon => pokemon.types.includes(filters.type));
+    const pokemonsName =  filtered.filter(pokemon => {
+      return pokemon.types.some(type => type.name === filters.type);
+    });
+    filtered = [...pokemonNormal,...pokemonsName]
   }
   if (filters.created === "Creados") {
     filtered = filtered.filter(pokemon => pokemon.id.length > 2);

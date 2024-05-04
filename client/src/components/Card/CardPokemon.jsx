@@ -1,10 +1,12 @@
 import React from "react";
 import "./Card.css";
-export default function CardPokemon({ name, types, image }) {
+
+export default function CardPokemon({ name, types, image, attack }) {
   return (
     <div className="stylesCard">
       <h3 className="name"> {name.charAt(0).toUpperCase() + name.slice(1)}</h3>
-      <img src={image} alt="imagen" className="img" width="120px" height="120px"/>
+      <p className="attack"> 💪 {attack}</p>
+      <img src={image} alt="imagen" className="img" width="140px" height="110px"/>
       <ul className="typeStyle">
         {types.map((type, index) => (
           <li key={index} className="type">

@@ -14,13 +14,19 @@ function rootReducer(state = initialState, action) {
         pokemons: action.payload,
         allPokemons: action.payload,
       };
-    case "FILTER_BY_TYPE":
+      case "FILTER_BY_TYPE":
       const allPokemons = state.allPokemons;
+      console.log(state.pokemons);
       const typeFiltered =
         action.payload === "" ? allPokemons : allPokemons.filter((e) => e.types.includes(action.payload));
+        const pokemonsName =  allPokemons.filter(pokemon => {
+          return pokemon.types.some(type => type.name === action.payload);
+        });
+        const combinedPokemon = [...typeFiltered , ...pokemonsName]
+        console.log("Pokémon filtrados por tipo:", combinedPokemon); 
       return {
         ...state,
-        pokemons: typeFiltered,
+        pokemons: combinedPokemon,
         filters: {
           ...state.filters,
           type: action.payload,

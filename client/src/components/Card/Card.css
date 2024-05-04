@@ -6,7 +6,7 @@
   display: inline-block;
   transition: all 400ms ease;
   box-sizing: content-box;
-  min-height: 150px;
+  height: 300px; /* Altura fija */
   border: 1.5px solid #22043dda;
   box-shadow: rgba(243, 16, 16, 0.2) 0px 10px 20px; 
 }
@@ -23,6 +23,11 @@
   text-decoration: none;
 }
 
+.attack {
+  font-family: initial;
+  color: black;
+}
+
 .typeStyle {
   list-style-type: none;
   color: #070606;
@@ -30,7 +35,7 @@
   display: inline;
   padding-left: 3px;
   padding-right: 3px;
-  font-family:initial;
+  font-family: initial;
   text-decoration: none;
   font-size: 20px;
 }
