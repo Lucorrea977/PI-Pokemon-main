@@ -4,8 +4,8 @@ const { Pokemon, Type } = require("../db");
 const getPokemons = async (name) => {
   let pokemonsTotal = await getAllPokemons();
   if (name) {
-    return pokemonsTotal.filter((el) =>
-      el.name.toLowerCase().includes(name.toLowerCase())
+    return pokemonsTotal.filter((elemento) =>
+      elemento.name.toLowerCase().includes(name.toLowerCase())
     );
   } else {
     return pokemonsTotal;
@@ -14,7 +14,7 @@ const getPokemons = async (name) => {
 
 const getPokemonById = async (id) => {
   const pokemonsTotal = await getAllPokemons();
-  return pokemonsTotal.filter((el) => el.id == id);
+  return pokemonsTotal.filter((elemento) => elemento.id == id);
 };
 
 const createPokemon = async (name, image, hp, attack, defense, speed, height, weight, types) => {

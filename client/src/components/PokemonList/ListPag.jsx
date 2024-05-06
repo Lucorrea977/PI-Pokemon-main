@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import CardPokemon from "../Card/CardPokemon";
 import Paginado from "../Paginado/Paginado";
@@ -9,6 +9,7 @@ function PokemonList({ pokemons }) {
   const indexOfLastPokemon = currentPage * pokemonsPerPage;
   const indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage;
   const currentPokemons = pokemons.slice(indexOfFirstPokemon, indexOfLastPokemon);
+
   const totalPages = Math.ceil(pokemons.length / pokemonsPerPage);
 
   const paginado = (pageNumber) => {
