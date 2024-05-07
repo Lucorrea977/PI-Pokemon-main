@@ -14,16 +14,15 @@ export default function LandingPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (name.trim() !== "") {
+    if (name !== "") {
       setIsLoading(true);
-
 
       setTimeout(() => {
         setIsLoading(false);
         navigate("/home");
       }, 2000);
     } else {
-      alert("Por favor, ingrese un nombre ");
+      alert("Por favor, ingrese un nombre");
     }
   };
 
