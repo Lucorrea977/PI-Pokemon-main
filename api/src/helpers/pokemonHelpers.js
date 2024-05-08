@@ -1,5 +1,5 @@
 const getAllPokemons = require("../controllers/getPokemon");
-const { Pokemons, Types } = require("../db");
+const { Pokemon, Type} = require("../db");
 
 const getPokemons = async (name) => {
   let pokemonsTotal = await getAllPokemons();
@@ -18,7 +18,7 @@ const getPokemonById = async (id) => {
 };
 
 const createPokemon = async (name, image, hp, attack, defense, speed, height, weight, types) => {
-  const newPokemon = await Pokemons.create({
+  const newPokemon = await Pokemon.create({
     name,
     image,
     hp,
@@ -36,7 +36,7 @@ const createPokemon = async (name, image, hp, attack, defense, speed, height, we
   if (Array.isArray(types) && types.length) {
     let dbTypes = await Promise.all(
       types.map((e) => {
-        return Types.findOne({ where: { name: e } });
+        return Type.findOne({ where: { name: e } });
       })
     );
     await newPokemon.setTypes(dbTypes);
