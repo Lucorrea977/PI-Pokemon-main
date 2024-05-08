@@ -19,9 +19,6 @@ function FilterBar() {
   const handleFilterCreated = (e) => {
     const { value } = e.target;
     dispatch(filterCreated(value));
-    if (value !== "") {
-      dispatch(filterByType("")); 
-    }
   };
 
   const handleFilterAttack = (e) => {
