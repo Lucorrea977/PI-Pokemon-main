@@ -16,12 +16,15 @@ export function searchPoke(name) {
   return async function (dispatch) {
     try {
       const json = await axios.get(`/pokemons?name=${name}`);
+      if (json.data.length === 0) {
+        throw new Error("Pokémon no encontrado");
+      }
       dispatch({
         type: "SEARCH_NAME",
         payload: json.data,
       });
     } catch (error) {
-      alert("No se encontró el Pokémon");
+      alert(error.message); 
     }
   };
 }

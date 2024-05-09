@@ -4,9 +4,13 @@ const { Pokemon, Type} = require("../db");
 const getPokemons = async (name) => {
   let pokemonsTotal = await getAllPokemons();
   if (name) {
-    return pokemonsTotal.filter((elemento) =>
-      elemento.name.toLowerCase().includes(name.toLowerCase())
+    const filteredPokemons = pokemonsTotal.filter((element) =>
+      element.name.toLowerCase().includes(name.toLowerCase())
     );
+    if (filteredPokemons.length === 0) {
+      throw new Error("Pokémon no encontrado");
+    }
+    return filteredPokemons;
   } else {
     return pokemonsTotal;
   }
