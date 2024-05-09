@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getType, postPokemon  } from "../../redux/actions";
+import { getType, postPokemon } from "../../redux/actions";
 
 import "./Create.css";
+
 
 function validate(pokemon) {
   let errors = {};
@@ -16,40 +17,37 @@ function validate(pokemon) {
     errors.name = "El nombre debe tener entre 3 y 30 caracteres";
   }
 
-  if (pokemon.hp < 0 || pokemon.hp > 999) {
-    errors.hp = "La vida debe ser un número entre 0 y 999";
+  if (!/^\d+$/.test(pokemon.hp) || pokemon.hp < 0 || pokemon.hp > 999) {
+    errors.hp = "La vida debe ser un número entero entre 0 y 999";
   }
 
-  if (pokemon.attack < 0 || pokemon.attack > 999) {
-    errors.attack = "La fuerza debe ser un número entre 0 y 999";
+  if (!/^\d+$/.test(pokemon.attack) || pokemon.attack < 0 || pokemon.attack > 999) {
+    errors.attack = "La fuerza debe ser un número entero entre 0 y 999";
   }
 
-  if (pokemon.defense < 0 || pokemon.defense > 999) {
-    errors.defense = "La defensa debe ser un número entre 0 y 999";
+  if (!/^\d+$/.test(pokemon.defense) || pokemon.defense < 0 || pokemon.defense > 999) {
+    errors.defense = "La defensa debe ser un número entero entre 0 y 999";
   }
 
-  if (pokemon.speed < 0 || pokemon.speed > 999) {
-    errors.speed = "La velocidad debe ser un número entre 0 y 999";
+  if (!/^\d+$/.test(pokemon.speed) || pokemon.speed < 0 || pokemon.speed > 999) {
+    errors.speed = "La velocidad debe ser un número entero entre 0 y 999";
   }
 
-  if (pokemon.height < 0 || pokemon.height > 999) {
-    errors.height = "La altura debe ser un número entre 0 y 999";
+  if (!/^\d+$/.test(pokemon.height) || pokemon.height < 0 || pokemon.height > 999) {
+    errors.height = "La altura debe ser un número entero entre 0 y 999";
   }
 
-  if (pokemon.weight < 0 || pokemon.weight > 999) {
-    errors.weight = "El peso debe ser un número entre 0 y 999";
+  if (!/^\d+$/.test(pokemon.weight) || pokemon.weight < 0 || pokemon.weight > 999) {
+    errors.weight = "El peso debe ser un número entero entre 0 y 999";
   }
-
-  if (pokemon.types.length === 0) {
-    errors.types = "Debes seleccionar al menos un tipo";
-  }
-
   return errors;
 }
+
 export default function PokemonCreate() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const types = useSelector((state) => state.types);
+
 
   const [errors, setErrors] = useState({});
   const [pokemon, setPokemon] = useState({
@@ -106,14 +104,13 @@ export default function PokemonCreate() {
   }
 
   async function handleGoBack() {
-    // Simulamos una carga interna esperando 500ms antes de volver atrás
+  
     await new Promise(resolve => setTimeout(resolve, 1000));
-    navigate("/home");
+   navigate("/home");
   }
-
   function onSubmit(e) {
     e.preventDefault();
-
+  
     const formErrors = validate(pokemon);
 
     if (Object.keys(formErrors).length === 0) {
@@ -136,99 +133,102 @@ export default function PokemonCreate() {
     }
   }
 
- return (
-  <form className="form" onSubmit={onSubmit}>
-    <h3 className="title">¡Crea tu pokemon!</h3>
+  return (
+   
+ 
+    
+    <form className="form" onSubmit={onSubmit}>
+      <h3 className="title">¡Crea tu pokemon!</h3>
 
-    <label htmlFor="name"> Nombre: </label>
-    <input
-      onChange={onInputChange}
-      id="name"
-      name="name"
-      type="text"
-      value={pokemon.name}
-      required
-      className="input"
-    />
-    {errors.name && <p className="error">{errors.name}</p>}
+      <label htmlFor="name"> Nombre: </label>
+      <input
+        onChange={onInputChange}
+        id="name"
+        name="name"
+        type="text"
+        value={pokemon.name}
+        required
+        className="input"
+      />
+      {errors.name && <p className="error">{errors.name}</p>}
 
-    <label htmlFor="image"> Imagen: </label>
-    <input
-      onChange={onInputChange}
-      id="image"
-      name="image"
-      type="text"
-      value={pokemon.image}
-      className="input"
-    />
+      <label htmlFor="image"> Imagen: </label>
+      <input
+        onChange={onInputChange}
+        id="image"
+        name="image"
+        type="text"
+        value={pokemon.image}
+        className="input"
+      />
 
-    <label htmlFor="hp"> Vida: </label>
-    <input
-      onChange={onInputChange}
-      id="hp"
-      name="hp"
-      type="number"
-      value={pokemon.hp}
-      className="input"
-    />
-    {errors.hp && <p className="error">{errors.hp}</p>}
+      <label htmlFor="hp"> Vida: </label>
+      <input
+        onChange={onInputChange}
+        id="hp"
+        name="hp"
+        type="number"
+        value={pokemon.hp}
+        className="input"
+      />
+      {errors.hp && <p className="error">{errors.hp}</p>}
 
-    <label htmlFor="attack"> Fuerza: </label>
-    <input
-      onChange={onInputChange}
-      id="attack"
-      name="attack"
-      type="number"
-      value={pokemon.attack}
-      className="input"
-    />
-    {errors.attack && <p className="error">{errors.attack}</p>}
+      <label htmlFor="attack"> Fuerza: </label>
+      <input
+        onChange={onInputChange}
+        id="attack"
+        name="attack"
+        type="number"
+        value={pokemon.attack}
+        className="input"
+      />
+      {errors.attack && <p className="error">{errors.attack}</p>}
 
-    <label htmlFor="defense"> Defensa: </label>
-    <input
-      onChange={onInputChange}
-      id="defense"
-      name="defense"
-      type="number"
-      value={pokemon.defense}
-      className="input"
-    />
-    {errors.defense && <p className="error">{errors.defense}</p>}
+      <label htmlFor="defense"> Defensa: </label>
+      <input
+        onChange={onInputChange}
+        id="defense"
+        name="defense"
+        type="number"
+        value={pokemon.defense}
+        className="input"
+      />
+      {errors.defense && <p className="error">{errors.defense}</p>}
 
-    <label htmlFor="speed"> Velocidad: </label>
-    <input
-      onChange={onInputChange}
-      id="speed"
-      name="speed"
-      type="number"
-      value={pokemon.speed}
-      className="input"
-    />
-    {errors.speed && <p className="error">{errors.speed}</p>}
+      <label htmlFor="speed"> Velocidad: </label>
+      <input
+        onChange={onInputChange}
+        id="speed"
+        name="speed"
+        type="number"
+        value={pokemon.speed}
+        className="input"
+      />
+      {errors.speed && <p className="error">{errors.speed}</p>}
 
-    <label htmlFor="height"> Altura: </label>
-    <input
-      onChange={onInputChange}
-      id="height"
-      name="height"
-      type="number"
-      value={pokemon.height}
-      className="input"
-    />
-    {errors.height && <p className="error">{errors.height}</p>}
+      <label htmlFor="height"> Altura: </label>
+      <input
+        onChange={onInputChange}
+        id="height"
+        name="height"
+        type="number"
+        value={pokemon.height}
+        className="input"
+      />
+      {errors.height && <p className="error">{errors.height}</p>}
 
-    <label htmlFor="weight"> Peso: </label>
-    <input
-      onChange={onInputChange}
-      id="weight"
-      name="weight"
-      type="number"
-      value={pokemon.weight}
-      className="input"
-    />
-    {errors.weight && <p className="error">{errors.weight}</p>}
+      <label htmlFor="weight"> Peso: </label>
+      <input
+        onChange={onInputChange}
+        id="weight"
+        name="weight"
+        type="number"
+        value={pokemon.weight}
+        className="input"
+      />
+      {errors.weight && <p className="error">{errors.weight}</p>}
 
-    {types.length > 0 && (
+      {types.length > 0 && (
         <div className="types-s">
           <label htmlFor="type-select"> Tipos: </label>
           <select id="type-select" onChange={handleSelect} value="">
@@ -241,27 +241,29 @@ export default function PokemonCreate() {
               </option>
             ))}
           </select>
-        {errors.types && <p className="error">{errors.types}</p>}
-        <ul>
-          {pokemon.types.map((type) => (
-            <li key={type}>
-              {type}
-              <button type="button" onClick={() => handleDelete(type)}>
-                x
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
-    )}
+          {errors.types && <p className="error">{errors.types}</p>}
+          <ul>
+            {pokemon.types.map((type) => (
+              <li key={type}>
+                {type}
+                <button type="button" onClick={() => handleDelete(type)}>
+                  x
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
-    <div className="button-group">
-      <button type="button" className="atras" onClick={handleGoBack}>
-        Atrás
-      </button>
-      <button type="submit" className="bottom">
-        Crear
-      </button>
-    </div>
-  </form>
-)}   
+      <div className="button-group">
+        <button type="button" className="atras" onClick={handleGoBack}>
+          Atrás
+        </button>
+        <button type="submit" className="bottom">
+          Crear
+        </button>
+      </div>
+    </form>
+    
+  )
+}   

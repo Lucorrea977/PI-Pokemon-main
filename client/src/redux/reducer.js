@@ -16,6 +16,7 @@ function rootReducer(state = initialState, action) {
         pokemons: action.payload,
         allPokemons: action.payload,
       };
+    
       case 'FILTER_BY_TYPE':
         const allPokemons = state.allPokemons;
         console.log(state.pokemons);

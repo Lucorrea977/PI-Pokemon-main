@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CardPokemon from "../Card/CardPokemon";
 import Paginado from "../Paginado/Paginado";
@@ -16,6 +16,10 @@ function PokemonList({ pokemons }) {
     setCurrentPage(pageNumber);
   };
 
+  useEffect(() => {
+    setCurrentPage(1); 
+  }, [pokemons]);
+
   return (
     <div className="pokemon-list">
       {totalPages > 1 && (
@@ -29,5 +33,4 @@ function PokemonList({ pokemons }) {
     </div>
   );
 }
-
-export default PokemonList;
+ export default PokemonList;

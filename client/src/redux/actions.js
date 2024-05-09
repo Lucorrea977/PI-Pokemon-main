@@ -15,13 +15,12 @@ export function postPokemon(payload) {
 export function searchPoke(name) {
   return async function (dispatch) {
     try {
-      const json = await axios.get("/pokemons?name=" + name);
-      return dispatch({
+      const json = await axios.get(`/pokemons?name=${name}`);
+      dispatch({
         type: "SEARCH_NAME",
         payload: json.data,
       });
     } catch (error) {
-
       alert("No se encontró el Pokémon");
     }
   };
