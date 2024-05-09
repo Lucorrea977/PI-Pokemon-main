@@ -54,12 +54,12 @@ export default function PokemonCreate() {
     name: "",
     types: [],
     image: "",
-    attack: "-",
-    hp: "-",
-    defense: "-",
-    speed: "-",
-    height: "-",
-    weight: "-",
+    attack: 0,
+    hp: 0,
+    defense: 0,
+    speed: 0,
+    height: 0,
+    weight: 0,
   });
 
   useEffect(() => {
@@ -120,12 +120,12 @@ export default function PokemonCreate() {
         name: "",
         types: [],
         image: "",
-        attack: "-",
-        defense: "-",
-        hp: "-",
-        speed: "-",
-        height: "-",
-        weight: "-",
+        attack: 0,
+        defense: 0,
+        hp: 0,
+        speed: 0,
+        height: 0,
+        weight: 0,
       });
       navigate("/home");
     } else {
