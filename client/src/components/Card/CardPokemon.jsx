@@ -8,7 +8,7 @@ import "./Card.css";
     return (
       <div className="stylesCard">
         <h3 className="name"> {name.charAt(0).toUpperCase() + name.slice(1)}</h3>
-        <p className="attack"> 💪 {attack}</p>
+        <p className="attack"> 💪Fuerza {attack} </p>
         <img src={image} alt="imagen" className="img" width="140px" height="110px"/>
         <ul className="typeStyle">
           {typesToShow.map((type, index) => (
