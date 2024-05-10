@@ -9,24 +9,3 @@ div select {
     outline: none;
 }
 
-.reload-button-container {
-    text-align: center;
-    margin-bottom: 15px; 
-    margin-top: 15px;
-  }
-  
-  .reload-button {
-    background-color: #4f0268b9; /* Cambia el color de fondo del botón según desees */
-    color: white;
-    
-    border:none;
-    padding: 6px 6px;
-    font-size: 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .reload-button:hover {
-    background-color: #ba7ad05e; /* Cambia el color de fondo al pasar el cursor sobre el botón */
-  }
