@@ -95,8 +95,4 @@ export function getType() {
     };
   }}
 
-  export const clearFilters = () =>{
-    return {
-      type: "CLEAR_FILTERS"
-    }
-  }
+ 

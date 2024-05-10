@@ -101,20 +101,14 @@ function rootReducer(state = initialState, action) {
         ...state,
         types: action.payload,
       };
-    case 'SET_FILTERS':
-      return {
-        ...state,
-        filters: action.payload,
-      };
-    case 'CLEAR_FILTERS':
-      return {
-        ...state,
-        pokemons: state.allPokemons,
-        filters: {},
-      };
-    default:
-      return state;
+      case 'SET_FILTERS':
+        return {
+          ...state,
+          filters: action.payload,
+        };
+      default:
+        return state; // Agrega este caso por defecto
+    }
   }
-}
 
-export default rootReducer;
+  export default rootReducer;

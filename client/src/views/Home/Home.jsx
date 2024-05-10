@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPokemons, clearFilters } from "../../redux/actions";
+import { getPokemons } from "../../redux/actions";
 import NavBar from "../../components/NavBar/NavBar";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import FilterBar from "../../components/FilterBar/FilterBar";
@@ -20,16 +20,15 @@ function Home() {
 
   const filteredPokemons = FilterPokemons(allPokemons, filters);
 
-  const handleClearFilters = () => {
-    dispatch(clearFilters());
-  };
+  
+  
 
   return (
     <>
       <NavBar />
       <SearchBar />
       <FilterBar />
-      <button className ="limpiar-filtro" onClick={handleClearFilters}> Limpiar Filtro </button>
+    
       <PokemonList pokemons={filteredPokemons} />
     </>
   );
