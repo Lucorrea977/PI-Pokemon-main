@@ -28,8 +28,7 @@ function Home() {
       <NavBar />
       <SearchBar />
       <FilterBar />
-    
-      <PokemonList pokemons={filteredPokemons} />
+     <PokemonList pokemons={filteredPokemons} />
     </>
   );
 }

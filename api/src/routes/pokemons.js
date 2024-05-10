@@ -20,6 +20,7 @@ router.get("/:id", async (req, res, next) => {
     pokemon.length
       ? res.status(200).json(pokemon)
       : res.status(404).send("No se encontró el pokemon");
+     
   } catch (error) {
     next(error);
   }

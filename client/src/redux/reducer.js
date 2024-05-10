@@ -107,8 +107,7 @@ function rootReducer(state = initialState, action) {
           filters: action.payload,
         };
       default:
-        return state; // Agrega este caso por defecto
-    }
+        return state; 
   }
-
+}
   export default rootReducer;
