@@ -11,7 +11,6 @@ export function postPokemon(payload) {
     }
   };
 }
-
 export function searchPoke(name) {
   return async function (dispatch) {
     try {

@@ -34,14 +34,14 @@ export default function SearchBar() {
   };
 
   return (
-    <div>
+    <form onSubmit={(e) => handleSubmit(e)}>
       <input
         className="search"
         type="text"
         onChange={(e) => handleInputChange(e)}
         placeholder="Buscar Pokémon..."
       />
-      <button className="boton" type="submit" onClick={(e) => handleSubmit(e)} disabled={isLoading}>
+      <button className="boton" type="submit" disabled={isLoading}>
         {isLoading ? ( 
           <img src="https://pa1.narvii.com/6371/6a71990a2be0ae0fb7198865207f4f35a91d6400_hq.gif" alt="Cargando..." className="loading" />
         ) : (
@@ -50,6 +50,6 @@ export default function SearchBar() {
       </button>
       
       {error && <p className="error">{error}</p>}
-    </div>
+    </form>
   );
 }
