@@ -1,57 +1,53 @@
+
 const initialState = {
   pokemons: [],
   allPokemons: [],
   detail: [],
   types: [],
   filters: {},
- 
 };
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
-  
     case 'GET_POKEMONS':
       return {
         ...state,
         pokemons: action.payload,
         allPokemons: action.payload,
       };
-    
-      case 'FILTER_BY_TYPE':
-        const allPokemons = state.allPokemons;
-        console.log(state.pokemons);
-        const typeFiltered =
-          action.payload === "" ? allPokemons : allPokemons.filter((e) => e.types.includes(action.payload));
-          const pokemonsName =  allPokemons.filter(pokemon => {
-            return pokemon.types.some(type => type.name === action.payload);
-          });
-          const combinedPokemon = [...typeFiltered , ...pokemonsName]
-          console.log("Pokémon filtrados por tipo:", combinedPokemon); 
-        return {
-          ...state,
-          pokemons: combinedPokemon,
-          filters: {
-            ...state.filters,
-            type: action.payload,
-          },
-        };
-      case 'FILTER_CREATED':
-        let createdFilter;
-        if (action.payload === 'Creados') {
-          createdFilter = state.allPokemons.filter((e) => e.createdAt);
-        } else if (action.payload === 'Existentes') {
-          createdFilter = state.allPokemons.filter((e) => !e.created);
-        } else {
-          createdFilter = state.allPokemons;
-        }
-        return {
-          ...state,
-          pokemons: action.payload === 'Todos' ? state.allPokemons : createdFilter,
-          filters: {
-            ...state.filters,
-            created: action.payload,
-          },
-        };
+    case 'FILTER_BY_TYPE':
+      const allPokemons = state.allPokemons;
+      const typeFiltered =
+        action.payload === "" ? allPokemons : allPokemons.filter((e) => e.types.includes(action.payload));
+      const pokemonsName = allPokemons.filter(pokemon => {
+        return pokemon.types.some(type => type.name === action.payload);
+      });
+      const combinedPokemon = [...typeFiltered , ...pokemonsName];
+      return {
+        ...state,
+        pokemons: combinedPokemon,
+        filters: {
+          ...state.filters,
+          type: action.payload,
+        },
+      };
+    case 'FILTER_CREATED':
+      let createdFilter;
+      if (action.payload === 'Creados') {
+        createdFilter = state.allPokemons.filter((e) => e.createdAt);
+      } else if (action.payload === 'Existentes') {
+        createdFilter = state.allPokemons.filter((e) => !e.created);
+      } else {
+        createdFilter = state.allPokemons;
+      }
+      return {
+        ...state,
+        pokemons: action.payload === 'Todos' ? state.allPokemons : createdFilter,
+        filters: {
+          ...state.filters,
+          created: action.payload,
+        },
+      };
     case 'FILTER_BY_ATTACK':
       let attackFilter = [...state.allPokemons];
       attackFilter = attackFilter.sort((a, b) => {
@@ -109,6 +105,12 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         filters: action.payload,
+      };
+    case 'CLEAR_FILTERS':
+      return {
+        ...state,
+        pokemons: state.allPokemons,
+        filters: {},
       };
     default:
       return state;

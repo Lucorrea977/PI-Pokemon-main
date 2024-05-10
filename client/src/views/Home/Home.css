@@ -9,3 +9,8 @@ div select {
     outline: none;
 }
 
+.limpiar-filtro{
+    margin-top: 15px;
+    color: rgb(244, 243, 245);
+    background-color: #791096a1;
+}

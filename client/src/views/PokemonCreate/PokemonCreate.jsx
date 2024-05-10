@@ -241,7 +241,7 @@ export default function PokemonCreate() {
               </option>
             ))}
           </select>
-          {errors.types && <p className="error">{errors.types}</p>}
+        
           <ul>
             {pokemon.types.map((type) => (
               <li key={type}>
