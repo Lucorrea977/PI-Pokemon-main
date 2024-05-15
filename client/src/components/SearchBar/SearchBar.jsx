@@ -7,11 +7,11 @@ export default function SearchBar() {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [error, setError] = useState("");
-  const [isLoading, setIsLoading] = useState(false); 
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleInputChange = (e) => {
     setName(e.target.value);
-    setError(""); 
+    setError("");
   };
 
   const handleSubmit = async (e) => {
@@ -22,14 +22,18 @@ export default function SearchBar() {
       return;
     }
 
-    setIsLoading(true); 
+    setIsLoading(true);
 
     try {
       await dispatch(searchPoke(name));
     } catch (error) {
-      setError("Ocurrió un error al buscar el Pokémon."); 
+      if (error.response && error.response.status === 404) {
+        setError("Pokémon no encontrado");
+      } else {
+        setError("Ocurrió un error al buscar el Pokémon.");
+      }
     } finally {
-      setIsLoading(false); 
+      setIsLoading(false);
     }
   };
 
@@ -42,13 +46,13 @@ export default function SearchBar() {
         placeholder="Buscar Pokémon..."
       />
       <button className="boton" type="submit" disabled={isLoading}>
-        {isLoading ? ( 
+        {isLoading ? (
           <img src="https://pa1.narvii.com/6371/6a71990a2be0ae0fb7198865207f4f35a91d6400_hq.gif" alt="Cargando..." className="loading" />
         ) : (
           "Buscar"
         )}
       </button>
-      
+
       {error && <p className="error">{error}</p>}
     </form>
   );

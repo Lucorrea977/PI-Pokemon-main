@@ -28,7 +28,7 @@ export default function About() {
 
         <ul>
           <li><a href="https://github.com/Lucorrea977" target="_blank" rel="noopener noreferrer"><img src={githubLogo} alt="GitHub" /></a></li>
-          <li><a href="https://www.linkedin.com/in/luana-correa-0b662616a" target="_blank" rel="noopener noreferrer"><img src={linkedinLogo} alt="LinkedIn" /></a></li>
+          <li><a href="https://www.linkedin.com/in/luana-camila-correa-0b662616a/" target="_blank" rel="noopener noreferrer"><img src={linkedinLogo} alt="LinkedIn" /></a></li>
           <li><a href="https://www.instagram.com/luannn.na1" target="_blank" rel="noopener noreferrer"><img src={instagramLogo} alt="Instagram" /></a></li>
         </ul>
       </div>

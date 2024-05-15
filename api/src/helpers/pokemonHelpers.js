@@ -17,6 +17,7 @@ const getPokemons = async (name) => {
 };
 
 
+
 const getPokemonById = async (id) => {
   const pokemonsTotal = await getAllPokemons();
   return pokemonsTotal.filter((elemento) => elemento.id == id);
