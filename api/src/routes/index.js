@@ -1,14 +1,11 @@
 
 
 const { Router } = require('express');
-const pokemonsRoute = require ('./pokemons')
-const typesRoute = require ('./types')
-
-
-
+const pokemonsRoute = require('./pokemons')
+const typesRoute = require('./types')
 const router = Router();
 
-router.use('/pokemons', pokemonsRoute); 
+router.use('/pokemons', pokemonsRoute);
 router.use('/types', typesRoute);
 
 
